@@ -63,7 +63,7 @@ These types of extensions would be generated in the following ways:
 The following table lists the supported extension types, that would have been generated using one of the aforementioned methods, and a brief summary of their purpose:
 
 Extension Type | Version | Purpose
--------------- | ------- | -------
+-------------- | :-----: | -------
 Activity Stream Event (as_event) | v1 | Enables embedded experience support on homepage updates stream
 Community App (community_widget) | v1 | Ability to add org specific widgets (available on 'Add App' in community actions)
 Contact Record (contact_record) | v1 | Ability to add button to the contact page
@@ -82,7 +82,7 @@ People | v3 | Ability to customize the type of profile for a user
 The following table shows the disposition of these extension types in an MSP-hosted environment:
 
 Extension Type | Version | Supported | Transition Path
--------------- | ------- | --------- | ----------------
+-------------- | :-----: | :-------: | ----------------
 Activity Stream Event (as_event) | v1 | Yes | Convert to v3 format, import into MSP apps mgr UI
 Community App (community_widget) | v1 | Yes	| Convert to v3 format, import into MSP apps mgr UI
 Contact Record (contact_record)	 | v1 | **NO** | Connections does not have contact records
