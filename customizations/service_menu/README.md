@@ -1,1 +1,1 @@
-# Using the Navigatiob Bar Customization
+# Using the Navigation Bar Customization
