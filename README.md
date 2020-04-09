@@ -6,6 +6,6 @@ In this repository:
 
 - Extension and customization [migration process](doc) documentation.
 
-- Catalog app [extensions](appcatalog-v3) for use with Connections MT.
+- Catalog app [extensions](appcatalog-v3) for use with Connections MSP environments.
 
 - [Examples](customizations) for extending the UI using Customizer. 
