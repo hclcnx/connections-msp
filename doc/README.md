@@ -161,7 +161,7 @@ Cisco Jabber | [com.cisco.jabber.json](../appcatalog-v3/com.cisco.jabber.json)
 Cisco Spark | [com.cisco.spark.json](../appcatalog-v3/com.cisco.spark.json)
 Cisco WebEx | [com.cisco.webex.json](../appcatalog-v3/com.cisco.webex.json)
 Cisco WebEx Mobile for iOS | Not Available
-Customizer Nifty Scripties | [com.nifty.scripties.json](../appcatalog-v3/com.nifty.scripties.json)
+Customizer Nifty Scripties | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)
 DropBox | [io.appspokes.dropbox.json](../appcatalog-v3/io.appspokes.dropbox.json)
 GitHub | [io.appspokes.github.json](../appcatalog-v3/io.appspokes.github.json)
 GitLab | [io.appspokes.gitlab.json](../appcatalog-v3/io.appspokes.gitlab.json)
@@ -177,7 +177,7 @@ Salesforce | [io.appspokes.salesforce.json](../appcatalog-v3/io.appspokes.salesf
 SharePoint Online | [io.appspokes.sharepoint.online.json](../appcatalog-v3/io.appspokes.sharepoint.online.json)
 SugarCRM | Not Available
 TalkTeam | [com.e-office.talkteam.json](../appcatalog-v3/com.e-office.talkteam.json) 	 	 
-Visual Update 1 for HCL CNX | [com.ibm.connections.periscope.json](/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json)
+Visual Update 1 for HCL CNX | [com.ibm.connections.vu1css](/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json)
 WordPress	| [io.appspokes.wordpress.json](../appcatalog-v3/io.appspokes.wordpress.json) 	 
 Wrike	| [io.appspokes.wrike.json](../appcatalog-v3/io.appspokes.wrike.json)
 Zendesk	| [io.appspokes.zendesk.json](../appcatalog-v3/io.appspokes.zendesk.json)	 
@@ -537,3 +537,7 @@ This same general approach would be repeated for all other customizations or ext
 
 # 3. Getting Help
 For assistance with this process, please reach out to your designated managed service provider (MSP).
+
+Customizer documentation: [https://github.com/ibmcnxdev/customizer/blob/master/docs/HCLConnectionsCustomizer.md](https://github.com/ibmcnxdev/customizer/blob/master/docs/HCLConnectionsCustomizer.md)
+
+Other Customizer examples: [https://github.com/ibmcnxdev/global-samples](https://github.com/ibmcnxdev/global-samples)
