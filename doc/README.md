@@ -177,7 +177,7 @@ Salesforce | [io.appspokes.salesforce.json](../appcatalog-v3/io.appspokes.salesf
 SharePoint Online | [io.appspokes.sharepoint.online.json](../appcatalog-v3/io.appspokes.sharepoint.online.json)
 SugarCRM | Not Available
 TalkTeam | [com.e-office.talkteam.json](../appcatalog-v3/com.e-office.talkteam.json) 	 	 
-Visual Update 1 for HCL CNX | [com.ibm.connections.vu1css](/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json)
+Visual Update 1 for HCL CNX | [com.ibm.connections.vu1css](https://github.com/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json)
 WordPress	| [io.appspokes.wordpress.json](../appcatalog-v3/io.appspokes.wordpress.json) 	 
 Wrike	| [io.appspokes.wrike.json](../appcatalog-v3/io.appspokes.wrike.json)
 Zendesk	| [io.appspokes.zendesk.json](../appcatalog-v3/io.appspokes.zendesk.json)	 
