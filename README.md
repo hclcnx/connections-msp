@@ -1,4 +1,4 @@
-# connections-mt
+# connections-msp
 
 Repository for documentation and example extensions / customizations for Connections MSP environments.
 
