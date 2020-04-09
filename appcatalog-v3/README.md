@@ -3,4 +3,4 @@ The files in this folder are compatible with and can be used in the V3 appregist
 
 They help to recreate the integrations and extensions associated with these partner applications that were available in Connections Cloud.
 
-See the [migration process](doc) documentation for details of how they are to be used.
+See the [migration process](../doc) documentation for details of how they are to be used.
