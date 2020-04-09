@@ -632,7 +632,9 @@
    "app_id": "com.cisco.webex.v3",
    "name": "WebExMeetings",
    "description": "%WebExMeetings.description",
+   "entitlement": "isv_webex",
    "payload": {},
+   "state": "disabled",
    "services": [
       "TopNavigationBar"
    ]

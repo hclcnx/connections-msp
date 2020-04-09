@@ -4,7 +4,7 @@
     "title": "ProjExec Live Projects",
     "description": "Add ProjExec link to top navigation bar",
     "services": [
-        "Communities"
+        "TopNavigationBar"
     ],
     "state": "enabled",
     "extensions": [

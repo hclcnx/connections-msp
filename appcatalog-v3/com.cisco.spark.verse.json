@@ -5,7 +5,7 @@
   "icon": "",
   "name": "Spark-Verse",
   "services": [
-    "Communities"
+    "TopNavigationBar", "Profiles"
   ],
   "state": "disabled",
   "title": "%Spark-Verse_title",

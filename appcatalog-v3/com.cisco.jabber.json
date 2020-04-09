@@ -6,7 +6,7 @@
   "name": "Jabber",
   "state": "disabled",
   "services": [
-    "Communities"
+    "TopNavigationBar", "Connections"
   ],
   "title": "%Jabber_title",
   "translations": {

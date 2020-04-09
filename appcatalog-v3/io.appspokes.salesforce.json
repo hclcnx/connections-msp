@@ -6,7 +6,7 @@
     "services": [
         "Communities"
     ],
-    "state": "enabled",
+    "state": "disabled",
     "extensions": [
         {
             "ext_id": "io.appspokes.salesforce.chart",

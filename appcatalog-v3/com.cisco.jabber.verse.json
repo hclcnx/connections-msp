@@ -5,7 +5,7 @@
   "icon": "",
   "name": "Jabber-Verse",
   "services": [
-    "Communities"
+    "TopNavigationBar"
   ],
   "state": "disabled",
   "title": "%Jabber-Verse_title",

@@ -5,7 +5,7 @@
   "icon": "",
   "name": "Spark",
   "services": [
-    "Communities"
+    "TopNavigationBar", "Profiles"
   ],
   "state": "disabled",
   "title": "%Spark_title",
