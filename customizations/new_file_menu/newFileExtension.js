@@ -22,7 +22,7 @@ var extension_2 = {
     APP_ID: "my_new_file_extension_2",
     EXT_URL: "https://<URL Link 2>/?org=${org_id}&subscriber=${subscriber_id}&email=${user_id}",
 };
-var extensions = [extension_1, extension_2];
+var extensions_new = [extension_1, extension_2];
 // ******************************************** // 
 
 
@@ -71,7 +71,7 @@ if(typeof(dojo) != "undefined") {
                 if (evt.target.id.includes("lconn_files_action_createitem") || evt.target.parentNode.id.includes("lconn_files_action_createitem")) {
                     console.log('clicked new file button');
 
-                    extensions.forEach(function(extension) {
+                    extensions_new.forEach(function(extension) {
                         var APP_CLASS_SELECTOR = extension.APP_ID+"_"+uniqueExtCounter++;
                         // Get the last action element in the More Actions list
                         var finalUrl = substituteURLParams(userInfo, extension.EXT_URL);
