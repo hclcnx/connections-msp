@@ -15,7 +15,7 @@
 var extension_1 = {
     APP_NAME: "<File Action Label 1>", // Add an extension menu label such as: "My File Extension"
     APP_ID: "my_new_file_extension_1", // Add an unique App Id using a format similar to this: "my_file_extension" 
-    EXT_URL: "https://<URL Link 1>/", // Add the file url and any context data parameters (file_id, ord_id, user_id, customer_id, subscriber_id)
+    EXT_URL: "https://<URL Link 1>/", // Add the file url and any context data parameters (file_id, org_id, user_id, subscriber_id)
 };
 var extension_2 = {
     APP_NAME: "<File Action Label 2>",
