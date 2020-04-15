@@ -1,9 +1,9 @@
 // ==UserScript==
 // @copyright    Copyright HCL Technologies Limited 2020
-// @name         file_menu extension
+// @name         new_file_menu extension
 // @namespace    http://hcl.com
 // @version      0.1
-// @description  Prototype code, sample on how to customize the More Actions dropdown in files list with new file menu extension
+// @description  Prototype code, sample on how to customize the New File dropdown on the files page with a file menu extension
 // @author       Jonathan Marks
 // @include      *://connmt-orgb.cnx.cwp.pnp-hcl.com/files/*
 // @exclude
@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 
-// ***  Enter Extension infomatioin here  *** //
+// ***  Enter Extension infomation here  *** //
 var extension_1 = {
     APP_NAME: "<File Action Label 1>", // Add an extension menu label such as: "My File Extension"
     APP_ID: "my_new_file_extension_1", // Add an unique App Id using a format similar to this: "my_file_extension" 
@@ -22,14 +22,14 @@ var extension_2 = {
     APP_ID: "my_new_file_extension_2",
     EXT_URL: "https://<URL Link 2>/?org=${org_id}&subscriber=${subscriber_id}&email=${user_id}",
 };
-var extensions_new = [extension_1, extension_2];
+var extensions_new = [extension_new_1, extension_new_2];
 // ******************************************** // 
 
 
 if(typeof(dojo) != "undefined") {
     require(["dojo/on", "dojo/mouse", "dijit/focus", "dojo/keys", "dojo/domReady!"],
         function(on, mouse, keys) {
-            console.log('file extension script loaded and dojo ready!');
+            console.log('New File extension script loaded.');
 
             var substituteURLParams = function(userInfo, url) {
                 var userId = encodeURIComponent(userInfo.id);
@@ -66,16 +66,15 @@ if(typeof(dojo) != "undefined") {
             var uniqueExtCounter = 0;
 
             document.addEventListener('click',function(evt){
-                console.log('the target event: ', evt.target);
                 // New extension under More Actions dropdown
                 if (evt.target.id.includes("lconn_files_action_createitem") || evt.target.parentNode.id.includes("lconn_files_action_createitem")) {
-                    console.log('clicked new file button');
 
                     extensions_new.forEach(function(extension) {
                         var APP_CLASS_SELECTOR = extension.APP_ID+"_"+uniqueExtCounter++;
                         // Get the last action element in the More Actions list
                         var finalUrl = substituteURLParams(userInfo, extension.EXT_URL);
 
+                        // Function to wait for dropdown menu to appear
                         waitFor( function() {
                             var actionListTableBody = dojo.query("#lconn_files_action_createitem_0_dropdown > table > tbody:last-child")[0];
                             var actionListItems = dojo.query("#lconn_files_action_createitem_0_dropdown > table > tbody > tr");
@@ -100,7 +99,7 @@ if(typeof(dojo) != "undefined") {
                                     actionListTableBody,
                                     "last"
                                 );
-                                console.log('new extension placed');
+                                console.log('New File menu extension placed.');
         
                                 // Add hover and select class names to the new extension elements
                                 var tableRows = dojo.query("#"+evt.target.id + "_dropdown > table > tbody > tr");
@@ -118,12 +117,14 @@ if(typeof(dojo) != "undefined") {
                                     dojo.style(dojo.query("#"+evt.target.id)[0], "border-left", "none"); 
                                 });
 
+                                // Remove hover effects when when element not hovered
                                 on(tableRows, mouse.leave, function(evt){
                                     var currentRow = dojo.query("#"+evt.target.id);
                                     dojo.removeClass(currentRow.parent()[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
                                     dojo.style(currentRow.prev()[0], "border-left", "5px solid white"); 
                                 });
-        
+                                
+                                // Event listener for launching file extension URL
                                 document.querySelectorAll('.customExtEndpoint').forEach(item => {
                                     item.addEventListener('click', event => {
                                         window.open(finalUrl);
