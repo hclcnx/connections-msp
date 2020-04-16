@@ -76,6 +76,25 @@ if(typeof(dojo) != "undefined") {
                 return actualUrl;
             };
 
+            var waitFor = function(callback, elXpath, elXpathRoot, maxInter, waitTime) {
+                if(!elXpath) return;
+                var root = elXpathRoot ? elxpathRoot : dojo.body();
+                var maxInterval = maxInter ? maxInter : 10000;  // number of intervals before expiring
+                var interval = waitTime ? waitTime : 1;  // 1000=1 second
+                var waitInter = 0;  // current interval
+                var intId = setInterval( function(){
+                    if( ++waitInter<maxInterval && !dojo.query(elXpath,root).length) return;
+
+                    clearInterval(intId);
+                    if( waitInter >= maxInterval) {
+                        console.log("**** WAITFOR ["+elXpath+"] WATCH EXPIRED!!! interval "+waitInter+" (max:"+maxInter+")");
+                    } else {
+                        console.log("**** WAITFOR ["+elXpath+"] WATCH TRIPPED AT interval "+waitInter+" (max:"+maxInter+")");
+                        callback();
+                    }
+                }, interval);
+            };
+
             var userInfo = JSON.parse(dojo.byId("userInfo").innerText);
             var uniqueExtCounter = 0;
             var filePreviewInfo;
@@ -93,61 +112,64 @@ if(typeof(dojo) != "undefined") {
                         if (fileInfo.fileExt && validFileExtension(fileInfo.fileExt, extension.MIME_TYPE)) {
                             var finalUrl = substituteURLParams(fileInfo, userInfo, extension.EXT_URL);
 
-                            var actionListTableBody = dojo.query("#" + evt.target.id + "_dropdown > table > tbody:last-child")[0];
-                            var actionListItems = dojo.query("#" + evt.target.id + "_dropdown > table > tbody > tr");
+                            // Function to wait for dropdown menu to appear
+                            waitFor( function() {
+                                var actionListTableBody = dojo.query("#" + evt.target.id + "_dropdown > table > tbody:last-child")[0];
+                                var actionListItems = dojo.query("#" + evt.target.id + "_dropdown > table > tbody > tr");
 
-                            // Check if our new extension is already in the action items list under More Actions, if it doesn't exist by "id" then add the new extension link
-                            if (!actionListItems.attr("class").some(item => item.includes(extension.APP_ID))) {
-                                var newExtensionItem = dojo.toDom(
-                                "<tr class=\"dijitReset dijitMenuItem customExtEndpoint "+extension.APP_ID+"\" data-dojo-attach-point=\"focusNode\" role=\"menuitem\" tabindex=\"0\" aria-label=\""+extension.APP_NAME+"\" id=\""+APP_CLASS_SELECTOR+"\" widgetid=\""+extension.APP_ID+"\" style=\"user-select: none;\">"+
-                                    "<td class=\"dijitReset dijitMenuItemIconCell customExtEndpoint\" role=\"presentation\">"+
-                                        "<span role=\"presentation\" class=\"dijitInline dijitIcon dijitMenuItemIcon dijitNoIcon\" data-dojo-attach-point=\"iconNode\"></span>"+
-                                    "</td>"+
-                                    "<td class=\"dijitReset dijitMenuItemLabel customExtEndpoint "+extension.APP_ID+"\" colspan=\"2\" data-dojo-attach-point=\"containerNode,textDirNode\" role=\"presentation\" id=\""+APP_CLASS_SELECTOR+"_text\">"+extension.APP_NAME+"</td>"+
-                                    "<td class=\"dijitReset dijitMenuItemAccelKey customExtEndpoint\" style=\"display: none\" data-dojo-attach-point=\"accelKeyNode\" id=\""+APP_CLASS_SELECTOR+"_accel\"></td>"+
-                                    "<td class=\"dijitReset dijitMenuArrowCell customExtEndpoint\" role=\"presentation\"><span data-dojo-attach-point=\"arrowWrapper\" style=\"visibility: hidden\">"+
-                                        "<span class=\"dijitInline dijitIcon dijitMenuExpand\"></span>"+
-                                        "<span class=\"dijitMenuExpandA11y\">+</span></span>"+
-                                    "</td>"+
-                                "</tr>");
-                                // Place the new extension at the end of the existing More Actions list
-                                dojo.place(
-                                    newExtensionItem,
-                                    actionListTableBody,
-                                    "last"
-                                );
-                                console.log('File list menu extension placed.');
-        
-                                // Add hover and select class names to the new extension elements
-                                var tableRows = dojo.query("#"+evt.target.id + "_dropdown > table > tbody > tr");
-                                on(tableRows, mouse.enter, function(evt){
-                                     var currentRow = dojo.query("#"+evt.target.id).parent();
-                                     var previousRow = dojo.query("#"+evt.target.id).parent().prev();
-                                     var nextRow = dojo.query("#"+evt.target.id).parent().next();
-                                     if(previousRow.length) {
-                                        dojo.removeClass(previousRow[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
-                                     }
-                                     if(nextRow.length) {
-                                        dojo.removeClass(nextRow[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
-                                     }
-                                    dojo.addClass(currentRow[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
-                                    dojo.style(dojo.query("#"+evt.target.id)[0], "border-left", "none"); 
-                                });
+                                // Check if our new extension is already in the action items list under More Actions, if it doesn't exist by "id" then add the new extension link
+                                if (!actionListItems.attr("class").some(item => item.includes(extension.APP_ID))) {
+                                    var newExtensionItem = dojo.toDom(
+                                    "<tr class=\"dijitReset dijitMenuItem customExtEndpoint "+extension.APP_ID+"\" data-dojo-attach-point=\"focusNode\" role=\"menuitem\" tabindex=\"0\" aria-label=\""+extension.APP_NAME+"\" id=\""+APP_CLASS_SELECTOR+"\" widgetid=\""+extension.APP_ID+"\" style=\"user-select: none;\">"+
+                                        "<td class=\"dijitReset dijitMenuItemIconCell customExtEndpoint\" role=\"presentation\">"+
+                                            "<span role=\"presentation\" class=\"dijitInline dijitIcon dijitMenuItemIcon dijitNoIcon\" data-dojo-attach-point=\"iconNode\"></span>"+
+                                        "</td>"+
+                                        "<td class=\"dijitReset dijitMenuItemLabel customExtEndpoint "+extension.APP_ID+"\" colspan=\"2\" data-dojo-attach-point=\"containerNode,textDirNode\" role=\"presentation\" id=\""+APP_CLASS_SELECTOR+"_text\">"+extension.APP_NAME+"</td>"+
+                                        "<td class=\"dijitReset dijitMenuItemAccelKey customExtEndpoint\" style=\"display: none\" data-dojo-attach-point=\"accelKeyNode\" id=\""+APP_CLASS_SELECTOR+"_accel\"></td>"+
+                                        "<td class=\"dijitReset dijitMenuArrowCell customExtEndpoint\" role=\"presentation\"><span data-dojo-attach-point=\"arrowWrapper\" style=\"visibility: hidden\">"+
+                                            "<span class=\"dijitInline dijitIcon dijitMenuExpand\"></span>"+
+                                            "<span class=\"dijitMenuExpandA11y\">+</span></span>"+
+                                        "</td>"+
+                                    "</tr>");
+                                    // Place the new extension at the end of the existing More Actions list
+                                    dojo.place(
+                                        newExtensionItem,
+                                        actionListTableBody,
+                                        "last"
+                                    );
+                                    console.log('File list menu extension placed.');
+            
+                                    // Add hover and select class names to the new extension elements
+                                    var tableRows = dojo.query("#"+evt.target.id + "_dropdown > table > tbody > tr");
+                                    on(tableRows, mouse.enter, function(evt){
+                                        var currentRow = dojo.query("#"+evt.target.id).parent();
+                                        var previousRow = dojo.query("#"+evt.target.id).parent().prev();
+                                        var nextRow = dojo.query("#"+evt.target.id).parent().next();
+                                        if(previousRow.length) {
+                                            dojo.removeClass(previousRow[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
+                                        }
+                                        if(nextRow.length) {
+                                            dojo.removeClass(nextRow[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
+                                        }
+                                        dojo.addClass(currentRow[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
+                                        dojo.style(dojo.query("#"+evt.target.id)[0], "border-left", "none"); 
+                                    });
 
-                                // Remove hover effects when when element not hovered
-                                on(tableRows, mouse.leave, function(evt){
-                                     var currentRow = dojo.query("#"+evt.target.id);
-                                     dojo.removeClass(currentRow.parent()[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
-                                     dojo.style(currentRow.prev()[0], "border-left", "5px solid white"); 
-                                });
-        
-                                // Event listener for launching file extension URL
-                                document.querySelectorAll('.customExtEndpoint').forEach(item => {
-                                    item.addEventListener('click', event => {
-                                        window.open(finalUrl);
-                                    })
-                                });
-                            }
+                                    // Remove hover effects when when element not hovered
+                                    on(tableRows, mouse.leave, function(evt){
+                                        var currentRow = dojo.query("#"+evt.target.id);
+                                        dojo.removeClass(currentRow.parent()[0], "dijitHover dijitMenuItemHover dijitMenuItemSelected");
+                                        dojo.style(currentRow.prev()[0], "border-left", "5px solid white"); 
+                                    });
+            
+                                    // Event listener for launching file extension URL
+                                    document.querySelectorAll('.customExtEndpoint').forEach(item => {
+                                        item.addEventListener('click', event => {
+                                            window.open(finalUrl);
+                                        })
+                                    });
+                                }
+                            }, "#" + evt.target.id + "_dropdown");
                         }
                     });
                 }
