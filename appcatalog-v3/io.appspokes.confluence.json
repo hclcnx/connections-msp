@@ -7,10 +7,12 @@
   ],
   "state": "disabled",
   "title": "Confluence",
-  "extensions": [{
+  "extensions": [
+    {
       "description": "Confluence List",
       "ext_id": "io.appspokes.confluence.v3.list",
       "name": "Confluence List",
+      "type": "community_widget",
       "payload": {
         "urls": {},
         "defId": "Confluence List",
@@ -19,7 +21,8 @@
         "primaryWidget": "true",
         "showInPalette": "true",
         "uniqueInstance": "false",
-        "itemSet": [{
+        "itemSet": [
+          {
             "name": "url",
             "value": "https://confluence-dev.appspokes.net/communityapp/confluence/listapp/view"
           },
@@ -33,13 +36,13 @@
           }
         ],
         "url": "https://apps.collabservintegration.com/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-      },
-      "type": "community_widget"
+      }
     },
     {
       "description": "Confluence Recent Updates",
       "ext_id": "io.appspokes.confluence.v3.updates",
       "name": "Confluence Recent Updates",
+      "type": "community_widget",
       "payload": {
         "urls": {},
         "defId": "Confluence Recent Updates",
@@ -48,7 +51,8 @@
         "primaryWidget": "true",
         "showInPalette": "true",
         "uniqueInstance": "false",
-        "itemSet": [{
+        "itemSet": [
+          {
             "name": "width",
             "value": "100%"
           },
@@ -62,13 +66,13 @@
           }
         ],
         "url": "https://apps.collabservintegration.com/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-      },
-      "type": "community_widget"
+      }
     },
     {
       "description": "Confluence Search",
       "ext_id": "io.appspokes.confluence.v3.search",
       "name": "Confluence Search",
+      "type": "community_widget",
       "payload": {
         "urls": {},
         "defId": "Confluence Search",
@@ -76,7 +80,8 @@
         "modes": "view",
         "primaryWidget": "true",
         "showInPalette": "true",
-        "itemSet": [{
+        "itemSet": [
+          {
             "name": "url",
             "value": "https://confluence-dev.appspokes.net/communityapp/confluence/searchapp/view"
           },
@@ -91,13 +96,13 @@
         ],
         "uniqueInstance": "false",
         "url": "https://apps.collabservintegration.com/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-      },
-      "type": "community_widget"
+      }
     },
     {
       "description": "Confluence Wiki",
       "ext_id": "io.appspokes.confluence.v3.wiki",
       "name": "Confluence Wiki",
+      "type": "community_widget",
       "payload": {
         "urls": {},
         "defId": "Confluence Wiki",
@@ -106,7 +111,8 @@
         "primaryWidget": "true",
         "showInPalette": "true",
         "uniqueInstance": "false",
-        "itemSet": [{
+        "itemSet": [
+          {
             "name": "width",
             "value": "100%"
           },
@@ -120,20 +126,21 @@
           }
         ],
         "url": "https://apps.collabservintegration.com/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-      },
-      "type": "community_widget"
+      }
     },
     {
-      "description": "Confluence Embedded Experience",
-      "enabled": "true",
-      "ext_id": "io.appspokes.confluence.v3.embedded",
-      "extends": "as_event",
-      "icon": "https://confluence-dev.appspokes.net/assets/images/confluence.png",
-      "mime_type": "",
       "name": "Confluence Embedded Experience",
-      "text": "Confluence Embedded Experience",
+      "description": "Confluence Embedded Experience",
+      "ext_id": "io.appspokes.confluence.v3.embedded",
       "type": "gadget",
-      "url": "https://confluence-dev.appspokes.net/stream/experience/render"
+      "payload": {
+        "extends": "as_event",
+        "icon": "https://confluence-dev.appspokes.net/assets/images/confluence.png",
+        "mime_type": "",
+        "name": "Confluence Embedded Experience",
+        "text": "Confluence Embedded Experience",
+        "url": "https://confluence-dev.appspokes.net/stream/experience/render"
+      }
     }
   ]
 }

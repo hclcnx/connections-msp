@@ -1,4 +1,12 @@
 {
+    "name": "Kudos Ideas",
+    "title": "Kudos Ideas",
+    "description": "Kudos Ideas community and navigation extensions",
+    "app_id": "com.isw.kudosideas",
+    "services": [
+        "Communities"
+    ],
+    "state": "disabled",
     "extensions": [
         {
             "name": "Kudos Community Ideas",
@@ -17,41 +25,33 @@
                 "showInPalette": "true",
                 "itemSet": [
                     {
-                    "name": "width",
-                    "value": "100%"
+                        "name": "width",
+                        "value": "100%"
                     },
                     {
-                    "name": "height",
-                    "value": "500px"
+                        "name": "height",
+                        "value": "500px"
                     },
                     {
-                    "name": "url",
-                    "value": "https://ideas-dev.isw.net.au/widget/smartcloud"
+                        "name": "url",
+                        "value": "https://ideas-dev.isw.net.au/widget/smartcloud"
                     }
                 ],
                 "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            }      
+            }
         },
         {
-            "name":"Kudos Ideas Navbar Link",
-            "description":"Launch Kudos ideas link",
-            "type":"com.ibm.action.link",
-            "ext_id":"com.isw.kudosideas.menu",
-            "path":"com.ibm.navbar.order.95000",
-            "payload":{
+            "name": "Kudos Ideas Navbar Link",
+            "description": "Launch Kudos ideas link",
+            "type": "com.ibm.action.link",
+            "ext_id": "com.isw.kudosideas.menu",
+            "path": "com.ibm.navbar.order.95000",
+            "payload": {
                 "text": "Kudos Ideas",
                 "link": "https://ideas-dev-api.isw.net.au/auth/smartcloud/a3|g3|s3",
                 "icon": "",
                 "tooltip": ""
             }
         }
-    ],
-    "name": "Kudos Ideas",
-    "title": "Kudos Ideas",
-    "description": "Kudos Ideas community and navigation extensions",
-    "app_id" : "com.isw.kudosideas",
-    "services": [
-        "Communities"
-    ],
-    "state": "disabled"
+    ]
 }

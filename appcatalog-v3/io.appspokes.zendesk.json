@@ -19,11 +19,8 @@
                 "icon": "https://zendesk.appspokes.net/assets/images/zendesk.png",
                 "description": "Zendesk Embedded Experience",
                 "text": "Zendesk Embedded Experience",
-                "type": "gadget",
-                "enabled": "true",
                 "url": "https://zendesk.appspokes.net/stream/experience/render"
-            },
-            "state": "enabled"
+            }
         }
     ]
 }

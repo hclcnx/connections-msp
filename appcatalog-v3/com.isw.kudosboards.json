@@ -1,4 +1,11 @@
-{
+{    "name": "Kudos Boards",
+    "title": "Kudos Boards",
+    "description": "Kudos Boards community and activity stream extensions",
+    "app_id" : "com.isw.kudosboards",
+    "services": [
+        "Communities"
+    ],
+    "state": "disabled",
     "extensions": [
         {
             "name": "Kudos Community Boards Widget",
@@ -58,18 +65,8 @@
                 "description": "AS entry for Boards",
                 "new_window": "false",
                 "text": "Boards AS",
-                "type": "gadget",
-                "enabled": "true",
                 "url": "https://kudosboards.com/stream/smartcloud"
             }
         }
-    ],
-    "name": "Kudos Boards",
-    "title": "Kudos Boards",
-    "description": "Kudos Boards community and activity stream extensions",
-    "app_id" : "com.isw.kudosboards",
-    "services": [
-        "Communities"
-    ],
-    "state": "disabled"
+    ]
 }

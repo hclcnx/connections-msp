@@ -36,8 +36,7 @@
 			    ],
 			    "uniqueInstance": "false",
 			    "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         },
         {
             "ext_id": "io.appspokes.onedrive.search",
@@ -67,8 +66,7 @@
 			    ],
 			    "uniqueInstance": "false",
 			    "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         }
     ]
 }

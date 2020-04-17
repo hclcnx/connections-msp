@@ -36,8 +36,7 @@
 			      }
 			    ],
 			    "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         }
     ]
 }

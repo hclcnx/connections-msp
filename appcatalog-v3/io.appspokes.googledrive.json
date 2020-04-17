@@ -7,10 +7,12 @@
   ],
   "state": "disabled",
   "title": "Google Drive",
-  "extensions": [{
+  "extensions": [
+    {
       "description": "Google Drive List",
       "ext_id": "io.appspokes.google.drive.v3.list",
       "name": "Google Drive List",
+      "type": "community_widget",
       "payload": {
         "urls": {},
         "defId": "Google Drive List",
@@ -18,7 +20,8 @@
         "modes": "view",
         "primaryWidget": "true",
         "showInPalette": "true",
-        "itemSet": [{
+        "itemSet": [
+          {
             "name": "width",
             "value": "100%"
           },
@@ -33,13 +36,13 @@
         ],
         "uniqueInstance": "false",
         "url": "https://apps.collabservintegration.com/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-      },
-      "type": "community_widget"
+      }
     },
     {
       "description": "Google Drive Search",
       "ext_id": "io.appspokes.google.drive.v3.search",
       "name": "Google Drive Search",
+      "type": "community_widget",
       "payload": {
         "urls": {},
         "defId": "Google Drive Search",
@@ -47,7 +50,8 @@
         "modes": "view",
         "primaryWidget": "true",
         "showInPalette": "true",
-        "itemSet": [{
+        "itemSet": [
+          {
             "name": "height",
             "value": "600px"
           },
@@ -62,19 +66,19 @@
         ],
         "uniqueInstance": "false",
         "url": "https://apps.collabservintegration.com/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-      },
-      "type": "community_widget"
+      }
     },
     {
       "description": "Google Drive Embedded Experience",
-      "enabled": "true",
       "ext_id": "io.appspokes.google.drive.v3.embedded",
-      "extends": "as_event",
-      "icon": "https://googledrive-dev.appspokes.net/assets/images/googledrive.png",
-      "mime_type": "",
-      "text": "Google Drive Embedded Experience",
       "type": "gadget",
-      "url": "https://googledrive-dev.appspokes.net/stream/experience/render"
+      "payload": {
+        "extends": "as_event",
+        "icon": "https://googledrive-dev.appspokes.net/assets/images/googledrive.png",
+        "mime_type": "",
+        "text": "Google Drive Embedded Experience",
+        "url": "https://googledrive-dev.appspokes.net/stream/experience/render"
+      }
     }
   ]
 }

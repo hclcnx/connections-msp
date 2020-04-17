@@ -19,11 +19,8 @@
                 "icon": "https://wrike.appspokes.net/assets/images/wrike.png",
                 "description": "Wrike Embedded Experience",
                 "text": "Wrike Embedded Experience",
-                "type": "gadget",
-                "enabled": "true",
                 "url": "https://wrike.appspokes.net/stream/experience/render"
-            },
-            "state": "enabled"
+            }
         }
     ]
 }

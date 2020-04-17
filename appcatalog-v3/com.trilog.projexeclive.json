@@ -18,8 +18,7 @@
 		        "link": "https://live.projexec.com/projexeclive/lotuslive_login.xsp",
 		        "tooltip": "",
 		        "target": "_blank"
-            },
-            "state": "enabled"
+            }
         }
     ]
 }

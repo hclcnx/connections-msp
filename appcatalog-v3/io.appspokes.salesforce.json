@@ -36,8 +36,7 @@
                 ],
                 "uniqueInstance": "false",
                 "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         },
         {
             "ext_id": "io.appspokes.salesforce.list",
@@ -67,8 +66,7 @@
                 ],
                 "uniqueInstance": "false",
                 "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         },
         {
             "ext_id": "io.appspokes.salesforce.recent",
@@ -98,8 +96,7 @@
                     }
                 ],
                 "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         },
         {
             "ext_id": "io.appspokes.salesforce.search",
@@ -129,8 +126,7 @@
                 ],
                 "uniqueInstance": "false",
                 "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml"
-            },
-            "state": "enabled"
+            }
         }
     ]
 }
