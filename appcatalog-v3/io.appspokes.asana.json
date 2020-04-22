@@ -9,7 +9,7 @@
   "title": "Asana",
   "extensions": [
     {
-      "description": "sana - My Tasks",
+      "description": "Asana - My Tasks",
       "ext_id": "io.appspokes.asana.v3.mytasks",
       "name": "Asana - My Tasks",
       "type": "community_widget",

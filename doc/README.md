@@ -11,10 +11,12 @@
   - [2.1 Migrating Existing V3 Extensions](#21-migrating-existing-v3-extensions)
   - [2.2 Migrating App Catalog (V1/V2) Extensions](#22-migrating-app-catalog-v1v2-extensions)
     - [2.2.1 App Catalog Extension Exceptions](#221-app-catalog-extension-exceptions)
-  - [2.3 General Extension Conversions](#23-general-extension-conversions)
-    - [2.3.1 Converting Unsupported Extension Types to Customizer](#231-converting-unsupported-extension-types-to-customizer)
-    - [2.3.2 Hosting the Custom JS / CSS Files](#232-hosting-the-custom-js--css-files)
-    - [2.3.3 Example Navigation Bar Customizations](#233-example-navigation-bar-customizations)
+  - [2.3 Converting Activity Stream Gadgets](#23-converting-activity-stream-gadgets)
+  - [2.4 Converting Community Widget Extensions](#24-converting-community-widget-extensions)
+  - [2.5 Converting Unsupported Extension Types to Customizer](#25-converting-unsupported-extension-types-to-customizer)
+    - [2.5.1 Hosting the Custom JS / CSS Files](#251-hosting-the-custom-js--css-files)
+    - [2.5.2 Example Navigation Bar Customizations](#252-example-navigation-bar-customizations)
+  - [2.6 General Extension Conversions](#26-general-extension-conversions)
 - [3. Getting Help](#3-getting-help)
 
 
@@ -62,40 +64,40 @@ These types of extensions would be generated in the following ways:
 ## 1.2 Extensions Supported in Connections Cloud
 The following table lists the supported extension types, that would have been generated using one of the aforementioned methods, and a brief summary of their purpose:
 
-Extension Type | Version | Purpose
--------------- | :-----: | -------
-Activity Stream Event (as_event) | v1 | Enables embedded experience support on homepage updates stream
-Community App (community_widget) | v1 | Ability to add org specific widgets (available on 'Add App' in community actions)
-Contact Record (contact_record) | v1 | Ability to add button to the contact page
-File Menu (file_menu) | v1 | Ability to add menu/link to the 'File' menu
-New File Menu (new file_menu) | v1 | Ability to add menu/link to the top level 'New' file menu/button
-Person Component (person_component) | v1 | Ability to add action link to the More Actions menu on user profile page
-Top Navigation Bar (service_menu) | v2 | Ability to add menu/link to the top navigation bar
-Verse | v2 | Ability to add menu/link to Verse instances of top navigation bar and biz card
-Customizer | v3 | Ability to inject custom js / css files into pages to modify behaviour / look and feel
-OrientMe | v3 | Ability to modify or add menu/link actions on the OrientMe tile
-ImportantToMe | v3 | Ability to modify existing or create custom ITM bar entries
-Notifications | v3 | Ability to customize the layout and look / feel of the notification emails
-People | v3 | Ability to customize the type of profile for a user
+| Extension Type                      | Version | Purpose                                                                                |
+| ----------------------------------- | ------- | -------------------------------------------------------------------------------------- |
+| Activity Stream Event (as_event)    | v1      | Enables embedded experience support on homepage updates stream                         |
+| Community App (community_widget)    | v1      | Ability to add org specific widgets (available on 'Add App' in community actions)      |
+| Contact Record (contact_record)     | v1      | Ability to add button to the contact page                                              |
+| File Menu (file_menu)               | v1      | Ability to add menu/link to the 'File' menu                                            |
+| New File Menu (new file_menu)       | v1      | Ability to add menu/link to the top level 'New' file menu/button                       |
+| Person Component (person_component) | v1      | Ability to add action link to the More Actions menu on user profile page               |
+| Top Navigation Bar (service_menu)   | v2      | Ability to add menu/link to the top navigation bar                                     |
+| Verse                               | v2      | Ability to add menu/link to Verse instances of top navigation bar and biz card         |
+| Customizer                          | v3      | Ability to inject custom js / css files into pages to modify behaviour / look and feel |
+| OrientMe                            | v3      | Ability to modify or add menu/link actions on the OrientMe tile                        |
+| ImportantToMe                       | v3      | Ability to modify existing or create custom ITM bar entries                            |
+| Notifications                       | v3      | Ability to customize the layout and look / feel of the notification emails             |
+| People                              | v3      | Ability to customize the type of profile for a user                                    |
 
 ## 1.3 Extensions Supported in Connections MSP
 The following table shows the disposition of these extension types in an MSP-hosted environment:
 
-Extension Type | Version | Supported | Transition Path
--------------- | :-----: | :-------: | ----------------
-Activity Stream Event (as_event) | v1 | Yes | Convert to v3 format, import into MSP apps mgr UI
-Community App (community_widget) | v1 | Yes	| Convert to v3 format, import into MSP apps mgr UI
-Contact Record (contact_record)	 | v1 | **NO** | Connections does not have contact records
-File Menu (file_menu) | v1 | Yes | Convert to use Customizer, import into MSP apps mgr UI
-New File Menu (new file_menu) | v1 | Yes | Convert to use Customizer, import into MSP apps mgr UI
-Person Component (person_component) | v1 | Yes | Convert to use Customizer, import into MSP apps mgr UI
-Top Navigation Bar (service_menu) | v2 | Yes | Convert to use Customizer, import into MSP apps mgr UI
-Verse | v2 | **NO** | Verse extensions not supported
-Customizer | v3 | Yes | Direct export from cloud apps mgr UI, import into MSP apps mgr UI
-OrientMe  | v3 | Yes | Direct export from cloud apps mgr UI, import into MSP apps mgr UI
-ImportantToMe | v3 | Yes | Direct export from cloud apps mgr UI, import into MSP apps mgr UI
-Notifications |  v3 | Yes | Direct export from cloud apps mgr UI, import into MSP apps mgr UI
-People |  v3 | Yes | Direct export from cloud apps mgr UI, import into MSP apps mgr UI
+| Extension Type                      | Version | Supported | Transition Path                                                   |
+| ----------------------------------- | ------- | --------- | ----------------------------------------------------------------- |
+| Activity Stream Event (as_event)    | v1      | Yes       | Convert to v3 format, import into MSP apps mgr UI                 |
+| Community App (community_widget)    | v1      | Yes       | Convert to v3 format, import into MSP apps mgr UI                 |
+| Contact Record (contact_record)     | v1      | **NO**    | Connections does not have contact records                         |
+| File Menu (file_menu)               | v1      | Yes       | Convert to use Customizer, import into MSP apps mgr UI            |
+| New File Menu (new file_menu)       | v1      | Yes       | Convert to use Customizer, import into MSP apps mgr UI            |
+| Person Component (person_component) | v1      | Yes       | Convert to use Customizer, import into MSP apps mgr UI            |
+| Top Navigation Bar (service_menu)   | v2      | Yes       | Convert to use Customizer, import into MSP apps mgr UI            |
+| Verse                               | v2      | **NO**    | Verse extensions not supported                                    |
+| Customizer                          | v3      | Yes       | Direct export from cloud apps mgr UI, import into MSP apps mgr UI |
+| OrientMe                            | v3      | Yes       | Direct export from cloud apps mgr UI, import into MSP apps mgr UI |
+| ImportantToMe                       | v3      | Yes       | Direct export from cloud apps mgr UI, import into MSP apps mgr UI |
+| Notifications                       | v3      | Yes       | Direct export from cloud apps mgr UI, import into MSP apps mgr UI |
+| People                              | v3      | Yes       | Direct export from cloud apps mgr UI, import into MSP apps mgr UI |
 
 # 2. Migrating Extensions
 The overall process is as follows:
@@ -139,64 +141,241 @@ The overall process is as follows:
 7. Create new versions of any custom extensions and load into the Apps Manager in the MSP environment and test.
 
 ## 2.1 Migrating Existing V3 Extensions
-Starting with the easiest to transition, for items that are already found in the Apps Manager UI in Connections Cloud, the administrator can copy / paste the JSON into files for safe keeping () and then import them into the Apps Manager UI in the MSP environment.
+Starting with the easiest to transition, for items that are already found in the Apps Manager UI in Connections Cloud, the administrator can copy / paste the JSON into files for safe keeping and then use those files for import into the Apps Manager UI in the MSP environment.
 
 Once loaded, the functionality can be verified in the MSP environment.
 
 ## 2.2 Migrating App Catalog (V1/V2) Extensions
-For each of the application entries in the application catalog, a V3 version of the related extensions has been created in the [appcatalog-v3](../appcatalog-v3) directory.
+For each of the application entries in the application catalog, a V3 version of the related application and extensions has been created in the [appcatalog-v3](appcatalog-v3) directory.
 
-There is a single application json file per catalog entry and within the file are each of the extensions that used to be generated when the catalog item was configured.
+There is a single application json file per catalog entry and within the file are each of the extensions that used to be generated when the catalog item was configured. These also show the necessary structure for a v3 application with associated extension(s).
 
 Download the json file for each of the applications that were in Connections Cloud and that need to be migrated then import them one by one into the Apps Manager UI in the MSP environment and test.
 
-Application Name | Link to Extension
----------------- | -----------------
-Asana	 | [io.appspokes.asana.json](../appcatalog-v3/io.appspokes.asana.json)
-Atlassian Confluence | [io.appspokes.confluence.json](../appcatalog-v3/io.appspokes.confluence.json)
-Atlassian JIRA | [io.appspokes.jira.json](../appcatalog-v3/io.appspokes.jira.json)
-Box | [io.appspokes.box.json](../appcatalog-v3/io.appspokes.box.json)
-Buzzy	| [com.buzzy.buzzy.json](../appcatalog-v3/com.buzzy.buzzy.json)
-Cisco Jabber | [com.cisco.jabber.json](../appcatalog-v3/com.cisco.jabber.json)
-Cisco Spark | [com.cisco.spark.json](../appcatalog-v3/com.cisco.spark.json)
-Cisco WebEx | [com.cisco.webex.json](../appcatalog-v3/com.cisco.webex.json)
-Cisco WebEx Mobile for iOS | Not Available
-Customizer Nifty Scripties | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)
-DropBox | [io.appspokes.dropbox.json](../appcatalog-v3/io.appspokes.dropbox.json)
-GitHub | [io.appspokes.github.json](../appcatalog-v3/io.appspokes.github.json)
-GitLab | [io.appspokes.gitlab.json](../appcatalog-v3/io.appspokes.gitlab.json)
-Google Drive | [io.appspokes.googledrive.json](../appcatalog-v3/io.appspokes.googledrive.json)
-IBM Watson Workspace | Not Available
-Kudos Boards | [com.isw.kudosboards.json](../appcatalog-v3/com.isw.kudosboards.json)
-Kudos Ideas	 | [com.isw.kudosideas.json](../appcatalog-v3/com.isw.kudosideas.json)
-OneDrive for Business	| [io.appspokes.onedrive.for.business.json](../appcatalog-v3/io.appspokes.onedrive.for.business.json)
-Preview features for HCL CNX Cloud | [com.hcl.connections.preview.json](../appcatalog-v3/com.hcl.connections.preview.json)
-ProjExec Live	| [com.trilog.projexeclive.json](../appcatalog-v3/com.trilog.projexeclive.json)
-QuickConnect | [io.appspokes.quick.connect.json](../appcatalog-v3/io.appspokes.quick.connect.json])
-Salesforce | [io.appspokes.salesforce.json](../appcatalog-v3/io.appspokes.salesforce.json)
-SharePoint Online | [io.appspokes.sharepoint.online.json](../appcatalog-v3/io.appspokes.sharepoint.online.json)
-SugarCRM | Not Available
-TalkTeam | [com.e-office.talkteam.json](../appcatalog-v3/com.e-office.talkteam.json) 	 	 
-Visual Update 1 for HCL CNX | [com.hcl.connections.vu1css](https://github.com/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json)
-WordPress	| [io.appspokes.wordpress.json](../appcatalog-v3/io.appspokes.wordpress.json) 	 
-Wrike	| [io.appspokes.wrike.json](../appcatalog-v3/io.appspokes.wrike.json)
-Zendesk	| [io.appspokes.zendesk.json](../appcatalog-v3/io.appspokes.zendesk.json)	 
-Zoom Meetings | Not Available
-e-SignDoc	/ e-SignRoom | [com.silanis.e-sign.json](../appcatalog-v3/com.silanis.e-sign.json)
+| Application Name                   | Link to Extension                                                                                  |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Asana                              | [io.appspokes.asana.json](appcatalog-v3/io.appspokes.asana.json)                                   |
+| Atlassian Confluence               | [io.appspokes.confluence.json](io.appspokes.confluence.json)                                       |
+| Atlassian JIRA                     | [io.appspokes.jira.json](appcatalog-v3/io.appspokes.jira.json)                                     |
+| Box                                | [io.appspokes.box.json](appcatalog-v3/io.appspokes.box.json)                                       |
+| Buzzy                              | [com.buzzy.buzzy.json](appcatalog-v3/com.buzzy.buzzy.json)                                         |
+| Cisco Jabber                       | [com.cisco.jabber.json](appcatalog-v3/com.cisco.jabber.json)                                       |
+| Cisco Spark                        | [com.cisco.spark.json](appcatalog-v3/com.cisco.spark.json)                                         |
+| Cisco WebEx                        | [com.cisco.webex.json](appcatalog-v3/com.cisco.webex.json)                                         |
+| Cisco WebEx Mobile for iOS         | Not Available                                                                                      |
+| Customizer Nifty Scripties         | [com.nifty.scripties.json](appcatalog-v3/com.nifty.scripties.json)                                 |
+| DropBox                            | [io.appspokes.dropbox.json](appcatalog-v3/io.appspokes.dropbox.json)                               |
+| GitHub                             | [io.appspokes.github.json](appcatalog-v3/io.appspokes.github.json)                                 |
+| GitLab                             | [io.appspokes.gitlab.json](appcatalog-v3/io.appspokes.gitlab.json)                                 |
+| Google Drive                       | [io.appspokes.googledrive.json](appcatalog-v3/io.appspokes.googledrive.json)                       |
+| IBM Watson Workspace               | Not Available                                                                                      |
+| Kudos Boards                       | [com.isw.kudosboards.json](appcatalog-v3/com.isw.kudosboards.json)                                 |
+| Kudos Ideas                        | [com.isw.kudosideas.json](appcatalog-v3/com.isw.kudosideas.json)                                   |
+| OneDrive for Business              | [io.appspokes.onedrive.for.business.json](appcatalog-v3/io.appspokes.onedrive.for.business.json)   |
+| Preview features for HCL CNX Cloud | [com.ibm.connections.preview.json](appcatalog-v3/com.ibm.connections.preview.json)                 |
+| ProjExec Live                      | [com.trilog.projexeclive.json](appcatalog-v3/com.trilog.projexeclive.json)                         |
+| QuickConnect                       | [io.appspokes.quick.connect.json](appcatalog-v3/io.appspokes.quick.connect.json])                  |
+| Salesforce                         | [io.appspokes.salesforce.json](appcatalog-v3/io.appspokes.salesforce.json)                         |
+| SharePoint Online                  | [io.appspokes.sharepoint.online.json](appcatalog-v3/io.appspokes.sharepoint.online.json)           |
+| SugarCRM                           | Not Available                                                                                      |
+| TalkTeam                           | [com.e-office.talkteam.json](appcatalog-v3/com.e-office.talkteam.json)                             |
+| Visual Update 1 for HCL CNX        | [com.ibm.connections.periscope.json](/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json) |
+| WordPress                          | [io.appspokes.wordpress.json](appcatalog-v3/io.appspokes.wordpress.json)                           |
+| Wrike                              | [io.appspokes.wrike.json](appcatalog-v3/io.appspokes.wrike.json)                                   |
+| Zendesk                            | [io.appspokes.zendesk.json](appcatalog-v3/io.appspokes.zendesk.json)                               |
+| Zoom Meetings                      | Not Available                                                                                      |
+| e-SignDoc	/ e-SignRoom             | [com.silanis.e-sign.json](appcatalog-v3/com.silanis.e-sign.json)                                   |
 
 ### 2.2.1 App Catalog Extension Exceptions
-Some of the applicaton definitions, listed in the prior table, include some extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.3.1 Convert Unsupported Extensions to Customizer](#231-convert-unsupported-extensions-to-customizer).
+Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.3.1 Convert Unsupported Extensions to Customizer](#231-convert-unsupported-extensions-to-customizer).
 
 Even though they will not have the same effect in the MSP environment as in Connections Cloud, they have been left in place **for reference**.
 
-Section [2.3.3 Example Navigation Bar Customizations](#233-example-navigation-bar-customizations) shows an example for a navigation bar customization. Re-use the relevant information (typically link label text and url link) from the application definitions available above in creation of the Customizer-based extensions.
+Section [2.5.2 Example Navigation Bar Customizations](#252-example-navigation-bar-customizations) shows an example for a navigation bar customization. Re-use the relevant information (typically link label text and url link) from the application definitions available above in creation of the Customizer-based extensions.
 
 Once the new customizations are working, that specific extension information can be removed from the application definitions that were used from above.
 
-## 2.3 General Extension Conversions
-In addition to pre-defined application customizations mentioned previously, there may be other custom extensions that were hand-crafted by the organization administrator(s) or developer(s). These customizations will need to be handled according to their type and disposition as noted in the table in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp).
+## 2.3 Converting Activity Stream Gadgets
+Activity stream gadgets (extension type 'as_event') are used to define embedded experiences on which users can take action from events in their activity stream; either on the classic homepage or on the OrientMe homepage.
 
-### 2.3.1 Converting Unsupported Extension Types to Customizer
+They typically declare the details needed to render the associated content of the application and links to actions within the external application.
+
+Below is an example of a v2 activity stream gadget definition from one of the existing 3rd party catalog applications:
+```json
+{
+  "text": "Asana Embedded Experience",
+  "description": "Asana Embedded Experience",
+  "icon": "https://asana-dev.appspokes.net/assets/images/asana.png",
+  "url": "https://asana-dev.appspokes.net/stream/experience/render",
+  "extends": "as_event",
+  "type": "gadget",
+  "mime_type": "",
+  "enabled": "true"
+}
+```
+In order to convert this to a format acceptable to the v3 app registry, it needs additional attributes to be defined around the original extension payload.
+
+The extension itself is placed in an extensions: [] array, since an application definition can contain 1-to-N extensions, and has a few extra attributes applied:
+
+| Extension Attribute Name | Purpose / Example                                                                                              |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| name                     | Replaces the text attribute; shows in the appregistry UI                                                       |
+| description              | Same as the original attribute                                                                                 |
+| ext_id                   | Usually a unique reverse domain notation that extends the application name (see below)                         |
+| type                     | *gadget* (same as the original attribute)                                                                      |
+| state                    | Replaces the *enabled: true\|false* attribute to determine if this particular extension is enabled or disabled |
+| payload                  | Encloses all of the other original attributes                                                                  |
+
+So taking the original extension json that would then be transformed into something like this:
+```json
+"extensions": [
+    {
+      "name": "Asana Embedded Experience",
+      "description": "Asana Embedded Experience",
+      "ext_id": "io.appspokes.asana.v3.embedded",
+      "type": "gadget",
+      "state": "enabled",
+      "payload": {
+        "extends": "as_event",
+        "icon": "https://asana-dev.appspokes.net/assets/images/asana.png",
+        "mime_type": "",
+        "url": "https://asana-dev.appspokes.net/stream/experience/render"
+      }
+    }
+  ]
+```
+The newly created extensions array is now wrapped in an outer application definition, where these attributes must be added:
+
+| Application Attribute Name | Purpose / Example                                               |
+| -------------------------- | --------------------------------------------------------------- |
+| app_id                     | Usually a unique reverse domain notation                        |
+| description                | Description of the application displayed on appregistry UI card |
+| name                       | The name of the application                                     |
+| services                   | *Connections* (the services to which it applies)                |
+| state                      | Whether the entire app definition is *enabled* or *disabled*    |
+| title                      | Displayed on the appregistry UI card                            |
+
+```json
+{
+  "app_id": "io.appspokes.asana.v3",
+  "description": "Asana",
+  "name": "Asana",
+  "services": [
+    "Connections"
+  ],
+  "state": "disabled",
+  "title": "Asana",
+  "extensions": [
+    {
+      "name": "Asana Embedded Experience",
+      "description": "Asana Embedded Experience",
+      "ext_id": "io.appspokes.asana.v3.embedded",
+      "type": "gadget",
+      "payload": {
+        "extends": "as_event",
+        "icon": "https://asana-dev.appspokes.net/assets/images/asana.png",
+        "mime_type": "",
+        "url": "https://asana-dev.appspokes.net/stream/experience/render"
+      }
+    }
+  ]
+}
+```
+This should now be able to be pasted into the appregistry UI code editor and be saved.
+
+Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](appcatalog-v3) directory.
+
+**Note:**
+In reality this activity stream gadget and the following community widget definition both relate to the Asana application. They have been separated here just for illustration purposes. That is why the application name and app_id are not unique in these two separate examples, because they are typically defined as a single application definition.
+
+They are combined in the actual example json file for this application [io.appspokes.asana.json](appcatalog-v3/io.appspokes.asana.json) with both extensions together in the extensions array.
+
+## 2.4 Converting Community Widget Extensions
+Community widgets (extension type 'community_widget') appear on the *Add Apps* panel of the community actions menu and once added to a community, define the details used to render the widget on the page and the tab in the community navigation.
+
+Below is an example of a v2 community widget definition:
+
+```json
+{
+  "name": "Asana - My Tasks",
+  "description": "",
+  "type": "community_widget",
+  "payload": {
+    "modes": "view",
+    "defId": "Asana - My Tasks",
+    "uniqueInstance": "false",
+    "primaryWidget": "true",
+    "showInPalette": "true",
+    "themes": "wpthemeThin wpthemeNarrow wpthemeWide wpthemeBanner",
+    "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml",
+    "itemSet": [
+      {
+        "value": "600px",
+        "name": "height"
+      },
+      {
+        "value": "100%",
+        "name": "width"
+      },
+      {
+        "name": "url",
+        "value": "https://asana-dev.appspokes.net/communityapp/tasks/render"
+      }
+    ]
+  }
+}
+```
+The process is similar as for the activity stream gadget.
+
+The extension payload is again wrapped in the extensions array, with any additional required attributes added, and all of that inside an application defintition:
+
+```json
+{
+  "app_id": "io.appspokes.asana.v3",
+  "description": "Asana",
+  "name": "Asana",
+  "services": [
+    "Communities"
+  ],
+  "state": "enabled",
+  "title": "Asana",
+  "extensions": [
+    {
+      "description": "Asana - My Tasks",
+      "ext_id": "io.appspokes.asana.v3.mytasks",
+      "name": "Asana - My Tasks",
+      "type": "community_widget",
+      "url": "/connections/resources/web/com.ibm.social.urliWidget.web.resources/widget/urlWidget.xml",
+      "payload": {
+        "defId": "Asana - My Tasks",
+        "themes": "wpthemeThin wpthemeNarrow wpthemeWide wpthemeBanner",
+        "modes": "view",
+        "primaryWidget": "true",
+        "showInPalette": "true",
+        "uniqueInstance": "false",
+        "itemSet": [
+          {
+            "name": "width",
+            "value": "100%"
+          },
+          {
+            "name": "height",
+            "value": "600px"
+          },
+          {
+            "name": "url",
+            "value": "https://asana-dev.appspokes.net/communityapp/tasks/render"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](appcatalog-v3) directory.
+
+## 2.5 Converting Unsupported Extension Types to Customizer
 Customizer-based modifications have 2 main parts:
 
 1. A file containing the json definition of the extension describing what JS / CSS files to inject in the Connections html page response. The json content should be copied / pasted or imported into the Apps Manager UI and saved as a v3 extension.
@@ -205,16 +384,16 @@ Customizer-based modifications have 2 main parts:
 
 Below you will find example implementations for the extension types that should be replaced with Customizer-based equivalents:
 
-Extension Type | Link to Example
--------------- | ---------------
-File Menu (file_menu) | [File Menu Examples](../customizations/file_menu)
-New File Menu (new_file_menu) | [New File Menu Examples](../customizations/new_file_menu)
-Person Component (person_component)	| [Person Component Examples](../customizations/person_component)
-Top Navigation Bar (service_menu) | [Top Navigation Bar Examples](../customizations/service_menu)
+| Extension Type                      | Link to Example                                              |
+| ----------------------------------- | ------------------------------------------------------------ |
+| File Menu (file_menu)               | [File Menu Examples](customizations/file_menu)               |
+| New File Menu (new_file_menu)       | [New File Menu Examples](customizations/new_file_menu)       |
+| Person Component (person_component) | [Person Component Examples](customizations/person_component) |
+| Top Navigation Bar (service_menu)   | [Top Navigation Bar Examples](customizations/service_menu)   |
 
 Use these examples, and for each of the existing extensions of these types that need to be converted, make a copy of the example files and update with the specific text, url links and other attributes that mimick what the old extensions previously contained.
 
-### 2.3.2 Hosting the Custom JS / CSS Files
+### 2.5.1 Hosting the Custom JS / CSS Files
 The custom JS and CSS files that implement organization specific customizations must be hosted in a persistent volume (PV) accessible to the Customizer (mw-proxy) microservice.
 
 In a standard Component Pack deployment this is typically **/pv-connections/customizations**. Under this directory an MSP will create a sub-directory per organization, in which the relevant files for each organization can be stored.
@@ -266,7 +445,7 @@ and this for org B, etc:
 
 The directory names are arbitrary and can be called anything so long as they are unique and a customer administrator knows their structure so as to reference them properly in the extension definitions.
 
-### 2.3.3 Example Navigation Bar Customizations
+### 2.5.2 Example Navigation Bar Customizations
 The following is an example for adding a menu and links to the top navigation bar.
 
 1. Obtain the structure of the existing top navigation bar extension(s) for reference, which should look something like this. The relevant lines that will be re-used are highlighted with -->> just for the purposes of this documentation:
@@ -535,9 +714,8 @@ If there are multiple customizations for the navbar, they could all be merged in
 
 This same general approach would be repeated for all other customizations or extensions requiring conversion for use in the Connections MSP environment.
 
+## 2.6 General Extension Conversions
+In addition to pre-defined application customizations mentioned previously, there may be other custom extensions that were hand-crafted by the organization administrator(s) or developer(s). These customizations will need to be handled according to their type and disposition as noted in the table in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp).
+
 # 3. Getting Help
 For assistance with this process, please reach out to your designated managed service provider (MSP).
-
-Customizer documentation: [https://github.com/ibmcnxdev/customizer/blob/master/docs/HCLConnectionsCustomizer.md](https://github.com/ibmcnxdev/customizer/blob/master/docs/HCLConnectionsCustomizer.md)
-
-Other Customizer examples: [https://github.com/ibmcnxdev/global-samples](https://github.com/ibmcnxdev/global-samples)
