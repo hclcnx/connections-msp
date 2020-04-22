@@ -12,6 +12,7 @@
   - [2.2 Migrating App Catalog (V1/V2) Extensions](#22-migrating-app-catalog-v1v2-extensions)
     - [2.2.1 App Catalog Extension Exceptions](#221-app-catalog-extension-exceptions)
   - [2.3 Converting Activity Stream Gadgets](#23-converting-activity-stream-gadgets)
+    - [2.3.1 Updates to Activity Stream Event Posts](#231-updates-to-activity-stream-event-posts)
   - [2.4 Converting Community Widget Extensions](#24-converting-community-widget-extensions)
   - [2.5 Converting Unsupported Extension Types to Customizer](#25-converting-unsupported-extension-types-to-customizer)
     - [2.5.1 Hosting the Custom JS / CSS Files](#251-hosting-the-custom-js--css-files)
@@ -283,12 +284,30 @@ The newly created extensions array is now wrapped in an outer application defini
 ```
 This should now be able to be pasted into the appregistry UI code editor and be saved.
 
+When the embedded experience is invoked by a user from the activity stream, if the extension is not registered, is not enabled or the url does not match the url of the open social context in the activity stream post, an error will be displayed saying the url is not whitelisted. The gadget extension, as shown in the example above, is the configuration item that permits access to the URL of the embedded experience. In this way, there is a simple enable / disable option for the embedded experience defined by the extension.
+
 Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](appcatalog-v3) directory.
 
 **Note:**
-In reality this activity stream gadget and the following community widget definition both relate to the Asana application. They have been separated here just for illustration purposes. That is why the application name and app_id are not unique in these two separate examples, because they are typically defined as a single application definition.
+In reality this activity stream gadget and the following community widget definition both relate to the Asana application. They have been purposely separated here just for illustration purposes. That is why the application name and app_id are not unique in these two separate examples, because they are typically defined as a single application definition.
 
 They are combined in the actual example json file for this application [io.appspokes.asana.json](appcatalog-v3/io.appspokes.asana.json) with both extensions together in the extensions array.
+
+### 2.3.1 Updates to Activity Stream Event Posts
+This document [Working with Activity Streams in the Cloud](https://ds-infolib.hcltechsw.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=Dev+Guide+topics#action=openDocument&res_title=Working_with_Activity_Streams_in_the_Cloud&content=pdcontent) contains a reference to the gadget URL that must be used when posting events to the Activity Stream in the Connections Cloud:
+
+Parameter | Value
+--------- | -----
+gadget | The only URL that will be executed as an embedded experience. The Gadget URL must be: https://apps.na.collabserv.com/connections/resources/web/com.ibm.social.ee.cloud/cloudee.xml
+
+For Connections MSP deployments, the basic URL structure is similar but since each organization will have a unique vanity host name, a relative URI can be used instead:
+
+Parameter | Value
+--------- | -----
+gadget | The only URL that will be executed as an embedded experience. The Gadget URL must be: [/connections/resources/web/com.ibm.social.ee.cloud/cloudee.xml](/connections/resources/web/com.ibm.social.ee.cloud/cloudee.xml)
+
+
+Therefore, applications that post events into the Activity Stream will need to be modified to account for this change.
 
 ## 2.4 Converting Community Widget Extensions
 Community widgets (extension type 'community_widget') appear on the *Add Apps* panel of the community actions menu and once added to a community, define the details used to render the widget on the page and the tab in the community navigation.
