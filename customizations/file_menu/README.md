@@ -7,7 +7,7 @@ The file_menu extension allows a new file menu to be added for a file. This exte
 
 More Actions | File Preview
 ------------ | ------------
-<img src="../doc/images/files-more-actions-custom.png" width="400x"/> | <img src="../doc/images/files-preview-more-custom.png" width="400x"/>
+<img src="../../doc/images/files-more-actions-custom.png" width="400x"/> | <img src="../../doc/images/files-preview-more-custom.png" width="400x"/>
 
 
 ## Modifying the File Extension Example JS file
@@ -34,7 +34,7 @@ Parameter Name | Value
 **${org_id}** | The organization identifier of the current user.
 
 Here is an example of how to define two file menu extensions using the example JS file and the parameters listed above:
-```json
+```js
 var extension_1 = {
     APP_NAME: "My File Extension 1", 
     APP_ID: "my_file_extension_1", //  
@@ -50,7 +50,7 @@ var extension_2 = {
 var extensions = [extension_1, extension_2];
 ```
 
-## Outline of File Extension Example JS File
+## Outline of File Extension Process Flow
 The provided example uses a mix of Dojo and Javascript to dynamically add new extensions points to the existing file dropdown menus.
 
 Define one or more extensions using the details provided above at the top of the example JS file. Try to define the extensions using the example syntax provided as these values are referenced throughout the example JS file.
@@ -77,10 +77,11 @@ There is an event listener checking if the target mouse click is one of the drop
 ## Registering the Customizer Extension
 In order for Customizer to insert this customization:
 
-1. Launch the appregistry UI at /appreg/apps (requires admin access).
-2. Create a New App definition.
-3. Go to the Code Editor section and remove the JSON outline.
-4. Paste in the content of the file [custom-files-menu.json](./custom-files-menu.json) file.
-5. If necessary, modify the **include-files path and file name** to match the location and name of the JS file on the MSP environment.
+1. Put the custom JS file onto the MSP environment.
+2. Launch the appregistry UI at **/appreg/apps** URL (requires admin access).
+3. Create a **New App** definition.
+4. Go to the **Code Editor** section and remove the JSON outline.
+5. Paste in the content of the file [custom-files-menu.json](./custom-files-menu.json) file.
+6. If necessary, modify the **include-files path and file name** to match the location and name of the JS file on the MSP environment.
    
 See section [2.5.1 Hosting the Custom JS / CSS Files](../../doc/README.md/#251-hosting-the-custom-js--css-files) of the main [Connections Cloud Application Extension Migration](../../doc/README.md) documentation for more details about where to host the custom JS/CSS files.
