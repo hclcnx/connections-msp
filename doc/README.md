@@ -542,7 +542,7 @@ The following is an example for adding a menu and links to the top navigation ba
 
 ```
 
-1. Take the navbar customization [example](customizations/service_menu/add-navbar-menu-links.js) 
+1. Take the navbar customization [example](../customizations/service_menu/add-navbar-menu-links.js) 
 appropriate to the manipulation you desire, such as adding links. 
 
    Update the example JS with the relevant label and link attributes from the original extension as shown above, to look something like below. Modified lines where changes were made for labels and text are highlighted with -->> just for the purposes of this documentation.
