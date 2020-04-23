@@ -14,7 +14,7 @@
                     "filesMenu/custom-files-menu.js"
                 ],
                 "cache-headers": {
-                    "cache-control": "max-age=38400"
+                    "cache-control": "max-age=43200"
                 }
             },
             "path": "files"

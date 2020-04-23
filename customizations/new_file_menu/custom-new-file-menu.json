@@ -11,10 +11,10 @@
             "type": "com.ibm.customizer.ui",
             "payload": {
                 "include-files": [
-                    "newFileMenu/newFileExtension.js"
+                    "newFileMenu/custom-new-file-menu.js"
                 ],
                 "cache-headers": {
-                    "cache-control": "max-age=38400"
+                    "cache-control": "max-age=43200"
                 }
             },
             "path": "files"
