@@ -48,7 +48,7 @@ As an organization administrator, the **Organization Extensions** page (shown be
 ![](images/org-extensions-admin-ui.png)
 
 ### 1.1.2 V3 Extensions
-For managing v3 extensions, most notably used in conjunction with services such as Customizer, OrientMe, etc.), an organization administrator would be using the new Apps Manager page (shown below) accessed via **/appreg/apps** uri:
+For managing v3 extensions, most notably used in conjunction with services such as Customizer, OrientMe, etc., an organization administrator would be using the new Apps Manager page (shown below) accessed via **/appreg/apps** uri:
 
 ![](images/apps-mgr-admin-ui.png)
 
@@ -188,7 +188,7 @@ Download the json file for each of the applications that were in Connections Clo
 | e-SignDoc	/ e-SignRoom             | [com.silanis.e-sign.json](appcatalog-v3/com.silanis.e-sign.json)                                   |
 
 ### 2.2.1 App Catalog Extension Exceptions
-Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.3.1 Convert Unsupported Extensions to Customizer](#231-convert-unsupported-extensions-to-customizer).
+Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.5 Convert Unsupported Extensions to Customizer](#25-convert-unsupported-extensions-to-customizer).
 
 Even though they will not have the same effect in the MSP environment as in Connections Cloud, they have been left in place **for reference**.
 
@@ -197,7 +197,7 @@ Section [2.5.2 Example Navigation Bar Customizations](#252-example-navigation-ba
 Once the new customizations are working, that specific extension information can be removed from the application definitions that were used from above.
 
 ## 2.3 Converting Activity Stream Gadgets
-Activity stream gadgets (extension type 'as_event') are used to define embedded experiences on which users can take action from events in their activity stream; either on the classic homepage or on the OrientMe homepage.
+Activity stream gadgets (extension type 'gadget') are used to define embedded experiences on which users can take action from events in their activity stream; either on the classic homepage or on the OrientMe homepage.
 
 They typically declare the details needed to render the associated content of the application and links to actions within the external application.
 
@@ -286,12 +286,12 @@ This should now be able to be pasted into the appregistry UI code editor and be 
 
 When the embedded experience is invoked by a user from the activity stream, if the extension is not registered, is not enabled or the url does not match the url of the open social context in the activity stream post, an error will be displayed saying the url is not whitelisted. The gadget extension, as shown in the example above, is the configuration item that permits access to the URL of the embedded experience. In this way, there is a simple enable / disable option for the embedded experience defined by the extension.
 
-Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](appcatalog-v3) directory.
+Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](../appcatalog-v3) directory.
 
 **Note:**
 In reality this activity stream gadget and the following community widget definition both relate to the Asana application. They have been purposely separated here just for illustration purposes. That is why the application name and app_id are not unique in these two separate examples, because they are typically defined as a single application definition.
 
-They are combined in the actual example json file for this application [io.appspokes.asana.json](appcatalog-v3/io.appspokes.asana.json) with both extensions together in the extensions array.
+They are combined in the actual example json file for this application [io.appspokes.asana.json](../appcatalog-v3/io.appspokes.asana.json) with both extensions together in the extensions array.
 
 ### 2.3.1 Updates to Activity Stream Event Posts
 This document [Working with Activity Streams in the Cloud](https://ds-infolib.hcltechsw.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=Dev+Guide+topics#action=openDocument&res_title=Working_with_Activity_Streams_in_the_Cloud&content=pdcontent) contains a reference to the gadget URL that must be used when posting events to the Activity Stream in the Connections Cloud:
@@ -392,7 +392,7 @@ The extension payload is again wrapped in the extensions array, with any additio
 }
 ```
 
-Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](appcatalog-v3) directory.
+Remember there are examples in many of the 3rd party application definitions already provided in the [appcatalog-v3](../appcatalog-v3) directory.
 
 ## 2.5 Converting Unsupported Extension Types to Customizer
 Customizer-based modifications have 2 main parts:
@@ -405,10 +405,10 @@ Below you will find example implementations for the extension types that should 
 
 | Extension Type                      | Link to Example                                              |
 | ----------------------------------- | ------------------------------------------------------------ |
-| File Menu (file_menu)               | [File Menu Examples](customizations/file_menu)               |
-| New File Menu (new_file_menu)       | [New File Menu Examples](customizations/new_file_menu)       |
-| Person Component (person_component) | [Person Component Examples](customizations/person_component) |
-| Top Navigation Bar (service_menu)   | [Top Navigation Bar Examples](customizations/service_menu)   |
+| File Menu (file_menu)               | [File Menu Examples](../customizations/file_menu)               |
+| New File Menu (new_file_menu)       | [New File Menu Examples](../customizations/new_file_menu)       |
+| Person Component (person_component) | [Person Component Examples](../customizations/person_component) |
+| Top Navigation Bar (service_menu)   | [Top Navigation Bar Examples](../customizations/service_menu)   |
 
 Use these examples, and for each of the existing extensions of these types that need to be converted, make a copy of the example files and update with the specific text, url links and other attributes that mimick what the old extensions previously contained.
 
@@ -542,7 +542,7 @@ The following is an example for adding a menu and links to the top navigation ba
 
 ```
 
-1. Take the navbar customization [example](customizations/service_menu/add-navbar-menu-links.js) 
+1. Take the navbar customization [example](../customizations/service_menu/add-navbar-menu-links.js) 
 appropriate to the manipulation you desire, such as adding links. 
 
    Update the example JS with the relevant label and link attributes from the original extension as shown above, to look something like below. Modified lines where changes were made for labels and text are highlighted with -->> just for the purposes of this documentation.
@@ -715,7 +715,7 @@ appropriate to the manipulation you desire, such as adding links.
           "orgA/customNavbar/customNavbar.js"
         ],
         "cache-headers": {
-          "cache-control": "max-age=38400"
+          "cache-control": "max-age=43200"
         }
       },
       "name": "Custom Navbar Links",
