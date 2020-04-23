@@ -1,17 +1,17 @@
 {
-  "name": "Navbar Customization",
-  "title": "Customize navigation bar",
-  "description": "Add custom buttons to navbar",
+  "name": "Bizcard Customization",
+  "title": "Customize bizcard menu",
+  "description": "Add custom menu items to bizcard",
   "services": [
       "Customizer"
   ],
   "extensions": [
       {
-          "name": "Add custom links",
+          "name": "Add custom bizcard menu",
           "type": "com.ibm.customizer.ui",
           "payload": {
               "include-files": [
-                  "customizeNavbar/custom-navbar.js"
+                  "customizeBizcard/customize-bizcard.js"
               ],
               "cache-headers": {
                   "cache-control": "max-age=43200"
