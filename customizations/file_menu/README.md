@@ -24,7 +24,7 @@ The extension varaiable for example **extension_1** should follow a similar JSON
 
 The JSON extension definitions should then be placed in an array as shown in the **extensions** array variable in the example below.
 
-These are the Contextual data parameters for the file extension url:
+These are the contextual data parameters for the file extension url, as they were in Connections Cloud, that can be passed to the receiving application:
 
 Parameter Name | Value
 -------------- | ------
