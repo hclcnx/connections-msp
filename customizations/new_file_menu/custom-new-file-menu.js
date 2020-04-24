@@ -5,7 +5,7 @@
 // @version      0.1
 // @description  Prototype code, sample on how to customize the New File dropdown on the files page with a file menu extension
 // @author       Jonathan Marks
-// @include      *://connmt-orgb.cnx.cwp.pnp-hcl.com/files/*
+// @include      *://*hcl.com/files/*
 // @exclude
 // @run-at       document-end 
 // ==/UserScript==

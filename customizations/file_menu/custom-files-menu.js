@@ -5,7 +5,7 @@
 // @version      0.1
 // @description  Prototype code, sample on how to customize the More Actions dropdown in files list/preview with file menu extensions.
 // @author       Jonathan Marks
-// @include      *://connmt-orgb.cnx.cwp.pnp-hcl.com/files/*
+// @include      *://*hcl.com/files/*
 // @exclude
 // @run-at       document-end 
 // ==/UserScript==
