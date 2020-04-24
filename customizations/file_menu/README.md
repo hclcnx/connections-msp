@@ -10,8 +10,8 @@ More Actions | File Preview
 <img src="../../doc/images/files-more-actions-custom.png" width="400x"/> | <img src="../../doc/images/files-preview-more-custom.png" width="400x"/>
 
 
-## Modifying the File Extension Example JS file
-Below is a list of parameters which need to be supplied in the example JS file provided in this repository:
+## Modifying the File Extension Example JS Script
+Below is a list of parameters which need to be supplied in the example JS script provided in this repository:
 
 Variable Name | Purpose
 ------------- | -------
@@ -33,7 +33,7 @@ Parameter Name | Value
 **${subscriber_id}** | The user identifier of the current user. 
 **${org_id}** | The organization identifier of the current user.
 
-Here is an example of how to define two file menu extensions using the example JS file and the parameters listed above:
+Here is an example of how to define two file menu extensions using the example JS script and the parameters listed above:
 ```js
 var extension_1 = {
     APP_NAME: "My File Extension 1", 
@@ -53,7 +53,7 @@ var extensions = [extension_1, extension_2];
 ## Outline of File Extension Process Flow
 The provided example uses a mix of Dojo and Javascript to dynamically add new extensions points to the existing file dropdown menus.
 
-Define one or more extensions using the details provided above at the top of the example JS file. Try to define the extensions using the example syntax provided as these values are referenced throughout the example JS file.
+Define one or more extensions using the details provided above at the top of the example JS script. Try to define the extensions using the example syntax provided as these values are referenced throughout the example JS file.
 
 There is an event listener checking if the target mouse click is one of the dropdown buttons/links corresponding to a location for the file menu extensions, these are the following locations:
 
@@ -77,11 +77,21 @@ There is an event listener checking if the target mouse click is one of the drop
 ## Registering the Customizer Extension
 In order for Customizer to insert this customization:
 
-1. Put the custom JS file onto the MSP environment.
+1. Put the custom JS script file onto the MSP environment.
 2. Launch the appregistry UI at **/appreg/apps** URL (requires admin access).
 3. Create a **New App** definition.
 4. Go to the **Code Editor** section and remove the JSON outline.
 5. Paste in the content of the file [custom-files-menu.json](./custom-files-menu.json) file.
-6. If necessary, modify the **include-files path and file name** to match the location and name of the JS file on the MSP environment.
+6. If necessary, modify the **include-files path and file name** to match the location and name of the JS script file on the MSP environment.
    
 See section [2.5.1 Hosting the Custom JS / CSS Files](../../doc/README.md/#251-hosting-the-custom-js--css-files) of the main [Connections Cloud Application Extension Migration](../../doc/README.md) documentation for more details about where to host the custom JS/CSS files.
+
+## Troubleshooting / Validation
+Below are some common troubleshooting issues and how to potentially solve those issues and validate that the custom extension script is working properly. Additional console log statements can be added to the custom JS script to help with debugging.
+
+<div style="width:350px">Issues</div> | Potential Solutions
+------------------ | -------
+The console message "File extension script loaded." wasn't displayed when accessing the files page and there aren't any errors in the browser console. | Check the browser network trace to see if the custom JS script file was loaded successfully.
+The file extension script was loaded successfully but the custom file extensions are not displaying. | The first place to look would be the "on click" event listener. Check that the target elements for the file menu and preview menu dropdowns are correct and can be queried successfully for example: ```dojo.query("#lconn_files_action_more_0");``` this should return and element.
+The file extension script "on click" events are working properly but the custom file extensions are not displaying or this is triggering browser console errors. | Try adding some additional console log statements. After clicking the dropdown button link, inspect the dropdown table elements in the DOM using the browser dev tools. Check that the IDs for the generated dropdown list match those for which the dojo queries in the script are looking. For example: ```dojo.query("#lconn_files_action_more_0_dropdown");``` this should return an element.
+The custom file extensions were successfully added to the file menu dropdown list, but the hover, active, or "on click" events aren't working properly. | Try adding some additional console log statements and check that the target elements for the dropdown list elements are correctly displaying on mouse over and mouse leave events as well as the on click event for the newly added extension. Additionally check that the hover and active classes for the newly added elements are correct along with the additional css styling to match the existing dropdown table elements.
