@@ -89,8 +89,8 @@ See section [2.5.1 Hosting the Custom JS / CSS Files](../../doc/README.md/#251-h
 ## Troubleshooting / Validation
 Below are some common troubleshooting issues and how to potentially solve those issues and validate that the custom extension script is working properly. Additional console log statements can be added to the custom JS script to help with debugging.
 
-<div style="width:350px">Issues</div> | Potential Solutions
------------------- | -------
+Issues | Potential Solutions
+------ | -------------------
 The console message "File extension script loaded." wasn't displayed when accessing the files page and there aren't any errors in the browser console. | Check the browser network trace to see if the custom JS script file was loaded successfully.
 The file extension script was loaded successfully but the custom file extensions are not displaying. | The first place to look would be the "on click" event listener. Check that the target elements for the file menu and preview menu dropdowns are correct and can be queried successfully for example: ```dojo.query("#lconn_files_action_more_0");``` this should return and element.
 The file extension script "on click" events are working properly but the custom file extensions are not displaying or this is triggering browser console errors. | Try adding some additional console log statements. After clicking the dropdown button link, inspect the dropdown table elements in the DOM using the browser dev tools. Check that the IDs for the generated dropdown list match those for which the dojo queries in the script are looking. For example: ```dojo.query("#lconn_files_action_more_0_dropdown");``` this should return an element.
