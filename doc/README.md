@@ -188,7 +188,7 @@ Download the json file for each of the applications that were in Connections Clo
 | e-SignDoc	/ e-SignRoom             | [com.silanis.e-sign.json](../appcatalog-v3/com.silanis.e-sign.json)                                   |
 
 ### 2.2.1 App Catalog Extension Exceptions
-Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.5 Convert Unsupported Extensions to Customizer](#25-convert-unsupported-extensions-to-customizer).
+Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.5 Convert Unsupported Extensions to Customizer](#25-converting-unsupported-extension-types-to-customizer).
 
 Even though they will not have the same effect in the MSP environment as in Connections Cloud, they have been left in place **for reference**.
 
