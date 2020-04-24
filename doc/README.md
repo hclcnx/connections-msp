@@ -147,7 +147,7 @@ Starting with the easiest to transition, for items that are already found in the
 Once loaded, the functionality can be verified in the MSP environment.
 
 ## 2.2 Migrating App Catalog (V1/V2) Extensions
-For each of the application entries in the application catalog, a V3 version of the related application and extensions has been created in the [appcatalog-v3](appcatalog-v3) directory.
+For each of the application entries in the application catalog, a V3 version of the related application and extensions has been created in the [appcatalog-v3](../appcatalog-v3) directory.
 
 There is a single application json file per catalog entry and within the file are each of the extensions that used to be generated when the catalog item was configured. These also show the necessary structure for a v3 application with associated extension(s).
 
