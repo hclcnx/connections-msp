@@ -164,7 +164,7 @@ Download the json file for each of the applications that were in Connections Clo
 | Cisco Spark                        | [com.cisco.spark.json](../appcatalog-v3/com.cisco.spark.json)                                         |
 | Cisco WebEx                        | [com.cisco.webex.json](../appcatalog-v3/com.cisco.webex.json)                                         |
 | Cisco WebEx Mobile for iOS         | Not Available                                                                                      |
-| Customizer Nifty Scripties         | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json))                                 |
+| Customizer Nifty Scripties         | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)                                 |
 | DropBox                            | [io.appspokes.dropbox.json](../appcatalog-v3/io.appspokes.dropbox.json)                               |
 | GitHub                             | [io.appspokes.github.json](../appcatalog-v3/io.appspokes.github.json)                                 |
 | GitLab                             | [io.appspokes.gitlab.json](../appcatalog-v3/io.appspokes.gitlab.json)                                 |
