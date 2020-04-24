@@ -147,7 +147,7 @@ Starting with the easiest to transition, for items that are already found in the
 Once loaded, the functionality can be verified in the MSP environment.
 
 ## 2.2 Migrating App Catalog (V1/V2) Extensions
-For each of the application entries in the application catalog, a V3 version of the related application and extensions has been created in the [appcatalog-v3](appcatalog-v3) directory.
+For each of the application entries in the application catalog, a V3 version of the related application and extensions has been created in the [appcatalog-v3](../appcatalog-v3) directory.
 
 There is a single application json file per catalog entry and within the file are each of the extensions that used to be generated when the catalog item was configured. These also show the necessary structure for a v3 application with associated extension(s).
 
@@ -155,40 +155,40 @@ Download the json file for each of the applications that were in Connections Clo
 
 | Application Name                   | Link to Extension                                                                                  |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Asana                              | [io.appspokes.asana.json](appcatalog-v3/io.appspokes.asana.json)                                   |
-| Atlassian Confluence               | [io.appspokes.confluence.json](io.appspokes.confluence.json)                                       |
-| Atlassian JIRA                     | [io.appspokes.jira.json](appcatalog-v3/io.appspokes.jira.json)                                     |
-| Box                                | [io.appspokes.box.json](appcatalog-v3/io.appspokes.box.json)                                       |
-| Buzzy                              | [com.buzzy.buzzy.json](appcatalog-v3/com.buzzy.buzzy.json)                                         |
-| Cisco Jabber                       | [com.cisco.jabber.json](appcatalog-v3/com.cisco.jabber.json)                                       |
-| Cisco Spark                        | [com.cisco.spark.json](appcatalog-v3/com.cisco.spark.json)                                         |
-| Cisco WebEx                        | [com.cisco.webex.json](appcatalog-v3/com.cisco.webex.json)                                         |
+| Asana                              | [io.appspokes.asana.json](../appcatalog-v3/io.appspokes.asana.json)                                   |
+| Atlassian Confluence               | [io.appspokes.confluence.json](../appcatalog-v3/io.appspokes.confluence.json)                                       |
+| Atlassian JIRA                     | [io.appspokes.jira.json](../appcatalog-v3/io.appspokes.jira.json)                                     |
+| Box                                | [io.appspokes.box.json](../appcatalog-v3/io.appspokes.box.json)                                       |
+| Buzzy                              | [com.buzzy.buzzy.json](../appcatalog-v3/com.buzzy.buzzy.json)                                         |
+| Cisco Jabber                       | [com.cisco.jabber.json](../appcatalog-v3/com.cisco.jabber.json)                                       |
+| Cisco Spark                        | [com.cisco.spark.json](../appcatalog-v3/com.cisco.spark.json)                                         |
+| Cisco WebEx                        | [com.cisco.webex.json](../appcatalog-v3/com.cisco.webex.json)                                         |
 | Cisco WebEx Mobile for iOS         | Not Available                                                                                      |
-| Customizer Nifty Scripties         | [com.nifty.scripties.json](appcatalog-v3/com.nifty.scripties.json)                                 |
-| DropBox                            | [io.appspokes.dropbox.json](appcatalog-v3/io.appspokes.dropbox.json)                               |
-| GitHub                             | [io.appspokes.github.json](appcatalog-v3/io.appspokes.github.json)                                 |
-| GitLab                             | [io.appspokes.gitlab.json](appcatalog-v3/io.appspokes.gitlab.json)                                 |
-| Google Drive                       | [io.appspokes.googledrive.json](appcatalog-v3/io.appspokes.googledrive.json)                       |
+| Customizer Nifty Scripties         | [com.nifty.scripties.json](../appcatalog-v3/com.nifty.scripties.json)                                 |
+| DropBox                            | [io.appspokes.dropbox.json](../appcatalog-v3/io.appspokes.dropbox.json)                               |
+| GitHub                             | [io.appspokes.github.json](../appcatalog-v3/io.appspokes.github.json)                                 |
+| GitLab                             | [io.appspokes.gitlab.json](../appcatalog-v3/io.appspokes.gitlab.json)                                 |
+| Google Drive                       | [io.appspokes.googledrive.json](../appcatalog-v3/io.appspokes.googledrive.json)                       |
 | IBM Watson Workspace               | Not Available                                                                                      |
-| Kudos Boards                       | [com.isw.kudosboards.json](appcatalog-v3/com.isw.kudosboards.json)                                 |
-| Kudos Ideas                        | [com.isw.kudosideas.json](appcatalog-v3/com.isw.kudosideas.json)                                   |
-| OneDrive for Business              | [io.appspokes.onedrive.for.business.json](appcatalog-v3/io.appspokes.onedrive.for.business.json)   |
-| Preview features for HCL CNX Cloud | [com.ibm.connections.preview.json](appcatalog-v3/com.ibm.connections.preview.json)                 |
-| ProjExec Live                      | [com.trilog.projexeclive.json](appcatalog-v3/com.trilog.projexeclive.json)                         |
-| QuickConnect                       | [io.appspokes.quick.connect.json](appcatalog-v3/io.appspokes.quick.connect.json])                  |
-| Salesforce                         | [io.appspokes.salesforce.json](appcatalog-v3/io.appspokes.salesforce.json)                         |
-| SharePoint Online                  | [io.appspokes.sharepoint.online.json](appcatalog-v3/io.appspokes.sharepoint.online.json)           |
+| Kudos Boards                       | [com.isw.kudosboards.json](../appcatalog-v3/com.isw.kudosboards.json)                                 |
+| Kudos Ideas                        | [com.isw.kudosideas.json](../appcatalog-v3/com.isw.kudosideas.json)                                   |
+| OneDrive for Business              | [io.appspokes.onedrive.for.business.json](../appcatalog-v3/io.appspokes.onedrive.for.business.json)   |
+| Preview features for HCL CNX Cloud | [com.ibm.connections.preview.json](../appcatalog-v3/com.ibm.connections.preview.json)                 |
+| ProjExec Live                      | [com.trilog.projexeclive.json](../appcatalog-v3/com.trilog.projexeclive.json)                         |
+| QuickConnect                       | [io.appspokes.quick.connect.json](../appcatalog-v3/io.appspokes.quick.connect.json])                  |
+| Salesforce                         | [io.appspokes.salesforce.json](../appcatalog-v3/io.appspokes.salesforce.json)                         |
+| SharePoint Online                  | [io.appspokes.sharepoint.online.json](../appcatalog-v3/io.appspokes.sharepoint.online.json)           |
 | SugarCRM                           | Not Available                                                                                      |
-| TalkTeam                           | [com.e-office.talkteam.json](appcatalog-v3/com.e-office.talkteam.json)                             |
+| TalkTeam                           | [com.e-office.talkteam.json](../appcatalog-v3/com.e-office.talkteam.json)                             |
 | Visual Update 1 for HCL CNX        | [com.ibm.connections.periscope.json](/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json) |
-| WordPress                          | [io.appspokes.wordpress.json](appcatalog-v3/io.appspokes.wordpress.json)                           |
-| Wrike                              | [io.appspokes.wrike.json](appcatalog-v3/io.appspokes.wrike.json)                                   |
-| Zendesk                            | [io.appspokes.zendesk.json](appcatalog-v3/io.appspokes.zendesk.json)                               |
+| WordPress                          | [io.appspokes.wordpress.json](../appcatalog-v3/io.appspokes.wordpress.json)                           |
+| Wrike                              | [io.appspokes.wrike.json](../appcatalog-v3/io.appspokes.wrike.json)                                   |
+| Zendesk                            | [io.appspokes.zendesk.json](../appcatalog-v3/io.appspokes.zendesk.json)                               |
 | Zoom Meetings                      | Not Available                                                                                      |
-| e-SignDoc	/ e-SignRoom             | [com.silanis.e-sign.json](appcatalog-v3/com.silanis.e-sign.json)                                   |
+| e-SignDoc	/ e-SignRoom             | [com.silanis.e-sign.json](../appcatalog-v3/com.silanis.e-sign.json)                                   |
 
 ### 2.2.1 App Catalog Extension Exceptions
-Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.5 Convert Unsupported Extensions to Customizer](#25-convert-unsupported-extensions-to-customizer).
+Some of the applicaton definitions, listed in the prior table, include extension types that are not supported as-is. Those were described in section [1.3 Extensions Supported in Connections MSP](#13-extensions-supported-in-connections-msp) as requiring conversion to use Customizer-based implementations instead and examples of them are referenced in [2.5 Convert Unsupported Extensions to Customizer](#25-converting-unsupported-extension-types-to-customizer).
 
 Even though they will not have the same effect in the MSP environment as in Connections Cloud, they have been left in place **for reference**.
 
