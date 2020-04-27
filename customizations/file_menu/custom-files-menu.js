@@ -16,7 +16,7 @@ var extension_1 = {
     APP_NAME: "<File Action Label 1>", // Add an extension menu label: "My File Extension"
     APP_ID: "my_file_extension_1", // Add an unique App Id using a format similar to this: "my_file_extension" 
     EXT_URL: "https://<URL Link 1>/${file_id}", // Add the file url and any context data parameters (e.g. file_id, ord_id, user_id, subscriber_id)
-    MIME_TYPE: ["pdf", "docx"] // Add the specific MIME Types for the file extension in an array format for example: ["pdf", "docx", "xls"], leave it empty [] for all all extensions
+    MIME_TYPE: ["pdf", "docx"] // Add the specific MIME Types for the file extension in an array format for example: ["pdf", "docx", "xls"], leave it empty [] for all file extensions
 };
 var extension_2 = {
     APP_NAME: "<File Action Label 2>",

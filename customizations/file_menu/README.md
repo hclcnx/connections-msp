@@ -17,7 +17,7 @@ Variable Name | Purpose
 ------------- | -------
 **APP_NAME** | The App name for the file extension for example: "My File Extension".
 **APP_ID** | Add a unique App Id using a format similar to this: "my_file_extension".
-**EXT_URL** | Add the file extension url and any context data parameters (file_id, ord_id, user_id, subscriber_id) that will have real values substituted.
+**EXT_URL** | Add the file extension url and any context data parameters (file_id, org_id, user_id, subscriber_id) that will have real values substituted.
 **MIME_TYPE** | Add the specific file extensions to which the menu should apply in an array format for example: ["pdf", "docx", "xls"] or leave it empty [] to be visible for any file type.
 
 The extension varaiable for example **extension_1** should follow a similar JSON format as provided in the example with a unique name/id.
@@ -63,7 +63,7 @@ There is an event listener checking if the target mouse click is one of the drop
     - Grab the dropdown table and last table elements.
     - Append the new extension element with the provided extension information to the existing dropdown table following the last table element.
     - Update the newly added extension with the same hover, active, and selected css effects.
-    - Add an on click event to the new extension using the newly construction file extension url.
+    - Add an on click event to the new extension using the newly constructed file extension url.
   
 2. The preview file More Actions dropdown menu:
    - Get the selected file information when clicking the file link to use later.
@@ -72,7 +72,7 @@ There is an event listener checking if the target mouse click is one of the drop
    - Grab the dropdown table and last table elements.
    - Append the new extension element with the provided extension information to the existing dropdown table following the last table element.
    - Update the newly added extension with the same hover, active, and selected css effects.
-   - Add an on click event listener to the new extension using the newly construction file extension url.
+   - Add an on click event listener to the new extension using the newly constructed file extension url.
 
 ## Registering the Customizer Extension
 In order for Customizer to insert this customization:
@@ -87,11 +87,11 @@ In order for Customizer to insert this customization:
 See section [2.5.1 Hosting the Custom JS / CSS Files](../../doc/README.md/#251-hosting-the-custom-js--css-files) of the main [Connections Cloud Application Extension Migration](../../doc/README.md) documentation for more details about where to host the custom JS/CSS files.
 
 ## Troubleshooting / Validation
-Below are some common troubleshooting issues and how to potentially solve those issues and validate that the custom extension script is working properly. Additional console log statements can be added to the custom JS script to help with debugging.
+Below are some common troubleshooting issues and how to potentially solve those issues and validate that the custom extension script is working properly. Addition console log statements can be added to the custom JS script to help with debugging.
 
 Issues | Potential Solutions
------- | -------------------
+------------- | -------
 The console message "File extension script loaded." wasn't displayed when accessing the files page and there aren't any errors in the browser console. | Check the browser network trace to see if the custom JS script file was loaded successfully.
-The file extension script was loaded successfully but the custom file extensions are not displaying. | The first place to look would be the "on click" event listener. Check that the target elements for the file menu and preview menu dropdowns are correct and can be queried successfully for example: ```dojo.query("#lconn_files_action_more_0");``` this should return and element.
-The file extension script "on click" events are working properly but the custom file extensions are not displaying or this is triggering browser console errors. | Try adding some additional console log statements. After clicking the dropdown button link, inspect the dropdown table elements in the DOM using the browser dev tools. Check that the IDs for the generated dropdown list match those for which the dojo queries in the script are looking. For example: ```dojo.query("#lconn_files_action_more_0_dropdown");``` this should return an element.
+The file extension script was loaded successfully but the custom file extensions are not displaying. | The first place to look would be the "on click" event listener. Check that the target elements for the file menu and preview menu dropdowns are correct and can be queried successfully for example: ```dojo.query("#lconn_files_action_more_0");``` this should return and element. Additionally, if you are using another script for the new_file_menu extensions make sure the declared extension variables provided are unique and not using the same names as the file_menu extension variables.
+The file extension script "on click" events are working properly but the custom file extensions are not displaying or this is triggering browser console errors. | Try adding some additional console log statements. After clicking the dropdown button link, inspect the dropdown table elements in the DOM using the browser dev tools. Check that the IDs for the generated dropdown list match what the dojo queries in the script are looking for. For example: ```dojo.query("#lconn_files_action_more_0_dropdown");``` this should return an element.
 The custom file extensions were successfully added to the file menu dropdown list, but the hover, active, or "on click" events aren't working properly. | Try adding some additional console log statements and check that the target elements for the dropdown list elements are correctly displaying on mouse over and mouse leave events as well as the on click event for the newly added extension. Additionally check that the hover and active classes for the newly added elements are correct along with the additional css styling to match the existing dropdown table elements.
