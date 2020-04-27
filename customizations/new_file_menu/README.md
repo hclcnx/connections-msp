@@ -1,9 +1,9 @@
 # Using the New File Menu Customization
 
 ## Overview
-The new_file_menu extension displays new custom item(s) in the "New" dropdown menu in Files.
+The new_file_menu extension displays new custom item(s) in the "New" dropdown menu in Files; example below shows Contract and Support Issue links added.
 
-<img src="../../doc/images/new-file-custom-actions.png" width="400x"/> | 
+<img src="../../doc/images/new-file-custom-actions.png" width="250x"/>
 
 ## Modifying the New File Extension Example JS Script
 Below is a list of parameters which need to be supplied in the example JS script provided in this repository:
