@@ -60,7 +60,7 @@ Cannot find More Actions menu to delete submenu:  | Check that the menu wrapper 
 ## Overview
 The customize-profile extension allows you to add, modify, or delete the buttons in the 'My Profile'page. This JavaScript code uses the [Dojo Toolkit API](https://dojotoolkit.org/api/?qs=1.9); see online documentation for help.
 
-The following shows an example customization where a button has been added:
+The following shows an example customization where a button (Bill's Files) has been added:
 
 <img src="../../doc/images/custom-profile.png" width="300x"/> 
 
