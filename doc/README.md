@@ -156,7 +156,7 @@ Download the json file for each of the applications that were in Connections Clo
 | Application Name                   | Link to Extension                                                                                  |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Asana                              | [io.appspokes.asana.json](../appcatalog-v3/io.appspokes.asana.json)                                   |
-| Atlassian Confluence               | [io.appspokes.confluence.json](../appcatalog-v3/io.appspokes.confluence.json)                                       |
+| Atlassian Confluence               | [io.appspokes.confluence.json](../appcatalog-v3/io.appspokes.confluence.json)                         |
 | Atlassian JIRA                     | [io.appspokes.jira.json](../appcatalog-v3/io.appspokes.jira.json)                                     |
 | Box                                | [io.appspokes.box.json](../appcatalog-v3/io.appspokes.box.json)                                       |
 | Buzzy                              | [com.buzzy.buzzy.json](../appcatalog-v3/com.buzzy.buzzy.json)                                         |
@@ -164,7 +164,8 @@ Download the json file for each of the applications that were in Connections Clo
 | Cisco Spark                        | [com.cisco.spark.json](../appcatalog-v3/com.cisco.spark.json)                                         |
 | Cisco WebEx                        | [com.cisco.webex.json](../appcatalog-v3/com.cisco.webex.json)                                         |
 | Cisco WebEx Mobile for iOS         | Not Available                                                                                      |
-| Customizer Nifty Scripties         | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)                                 |
+| Community Engagement Center        | [com.hcl.icec.json](../appcatalog-v3/com.hcl.cec.json)
+| Customizer Nifty Scripties         | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)                                |
 | DropBox                            | [io.appspokes.dropbox.json](../appcatalog-v3/io.appspokes.dropbox.json)                               |
 | GitHub                             | [io.appspokes.github.json](../appcatalog-v3/io.appspokes.github.json)                                 |
 | GitLab                             | [io.appspokes.gitlab.json](../appcatalog-v3/io.appspokes.gitlab.json)                                 |
