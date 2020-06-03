@@ -3,11 +3,6 @@
 # Embedding the Navigation Bar
 The following information shows how to embed and use the Connections navigation bar on other web pages and applications to assist users in navigating between applications.
 
-This is an example where the Connections navbar has been added into another application page:
-
-<img src="../../../doc/images/embed-nav-example2.png" width="400x"/> 
-
-
 ## Setting Up the Required Files
 The script and CSS files are common to all tenants and only need be set up for the first customer that wishes to make use of embedding the navigation bar.
 
