@@ -57,7 +57,7 @@ To do this, a tag like the following is placed in the html page referencing the 
 <!-- framemargin    : (Optional) margin of navbar iframe container (default = 0) -->
 
 <script id="embedCNXNavbar" src="https://mtdemo1-orgc.cnx.cwp.pnp-hcl.com/files/customizer/embed-navbar/get-navbar.js" anchorid="lotusContent" hostname="mtdemo1-orgc.cnx.cwp.pnp-hcl.com" 
-frameWidth="100%" frameheight="51px" maxframeheight='480px' frameborder="0" framepadding="0" framemargin="0"></script>
+frameWidth="100%" frameheight="50px" maxframeheight='500px' frameborder="0" framepadding="0" framemargin="0"></script>
 ```
 The example contains comments that define the allowable parameters but only the `<script>.....</script>` tag content is actually necessary. 
 
