@@ -28,7 +28,7 @@ Connections produces just the re-usable header content via a request to **/homep
 
 Each customer must set up their own Customizer extension in the app registry since they cannot be shared across organizations.
 
-1. Using the app registry client **https://<vanityHost>/appreg/apps** create a new app, click on Code Editor link and remove the initial json outine, then paste in the json from the [embed-nav.json](./embed-nav.json) example file (screenshot below).
+1. Using the app registry client `https://<vanityHost>/appreg/apps` create a new app, click on Code Editor link and remove the initial json outine, then paste in the json from the [embed-nav.json](./embed-nav.json) example file (screenshot below).
 
     Notice that url match rule which indicates that although this is on the /homepage path, it is only actioned by Customizer when the url contains pageHeader, so it will not affect any other /homepage/.... requests.
 
