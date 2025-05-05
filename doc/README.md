@@ -165,7 +165,7 @@ Download the json file for each of the applications that were in Connections Clo
 | Cisco WebEx                        | [com.cisco.webex.json](../appcatalog-v3/com.cisco.webex.json)                                         |
 | Cisco WebEx Mobile for iOS         | Not Available                                                                                      |
 | Community Engagement Center        | [com.hcl.icec.json](../appcatalog-v3/com.hcl.cec.json)
-| Customizer Nifty Scripties         | [com.nifty.scripties.json](https://github.com/ibmcnxdev/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)                                |
+| Customizer Nifty Scripties         | [com.nifty.scripties.json](https://github.com/hclcnx/global-samples/blob/master/nifty-scripties/niftyScriptiesApp.json)                                |
 | DropBox                            | [io.appspokes.dropbox.json](../appcatalog-v3/io.appspokes.dropbox.json)                               |
 | GitHub                             | [io.appspokes.github.json](../appcatalog-v3/io.appspokes.github.json)                                 |
 | GitLab                             | [io.appspokes.gitlab.json](../appcatalog-v3/io.appspokes.gitlab.json)                                 |
@@ -181,7 +181,7 @@ Download the json file for each of the applications that were in Connections Clo
 | SharePoint Online                  | [io.appspokes.sharepoint.online.json](../appcatalog-v3/io.appspokes.sharepoint.online.json)           |
 | SugarCRM                           | Not Available                                                                                      |
 | TalkTeam                           | [com.e-office.talkteam.json](../appcatalog-v3/com.e-office.talkteam.json)                             |
-| Visual Update 1 for HCL CNX        | [com.ibm.connections.periscope.json](https://github.com/ibmcnxdev/cnx-custom-theme/blob/master/vu1-include-css.json) |
+| Visual Update 1 for HCL CNX        | [com.ibm.connections.periscope.json](https://github.com/hclcnx/cnx-custom-theme/blob/master/vu1-include-css.json) |
 | WordPress                          | [io.appspokes.wordpress.json](../appcatalog-v3/io.appspokes.wordpress.json)                           |
 | Wrike                              | [io.appspokes.wrike.json](../appcatalog-v3/io.appspokes.wrike.json)                                   |
 | Zendesk                            | [io.appspokes.zendesk.json](../appcatalog-v3/io.appspokes.zendesk.json)                               |
