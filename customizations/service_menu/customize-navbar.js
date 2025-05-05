@@ -5,9 +5,9 @@
 // @version      0.1
 // @description  Prototype code, sample on how to customize the navbar menu (Create, Modify, and Delete), only tested with English strings, MT environment only
 // @author       Saymai Adkins
-// @include      *://connmt-orga.cnx.cwp.pnp-hcl.com/*
+// @include      *://<your service URL>/*
 // @exclude
-// @run-at       document-end 
+// @run-at       document-end
 // ==/UserScript==
 
 (function () {
@@ -34,12 +34,38 @@
                         }
                     }, interval);
                 };
+                // Create simple Link (top level navbar link)
+                // nodeParent - navbar container element
+                // nodeId - unique id for this top navbar menu item
+                // menuTitle - navbar menu item text
+                // menuLink - navbar menu link, to launch if the user clicks on this menu item
+                var createMenuLink = function (nodeParent, nodeId, menuTitle, menuLink, position, beforeAfter, target) {
+                    if (nodeParent && !dojo.query("#" + nodeId)[0]) {
+                        var host = '';
+                        var templateTD = '<a class="lotusBold" href="${menuLink}" target="${target}">${menuTitle}</a>';
+                        var html = string.substitute(templateTD, {
+                            menuTitle,
+                            menuLink,
+                            target
+                        }, string.escape);
+                        domConstruct.create(
+                            "li", {
+                                id: nodeId,
+                                innerHTML: html
+                            },
+                            nodeParent
+                        );
+                        return domConstruct.place(nodeId, position, beforeAfter);
+                    } else {
+                        throw new Error("Error couldn't find the node parent to insert menu link");
+                    }
+                };
                 // Create menu wrapper (top level navbar menu with dropdown menu)
                 // nodeParent - navbar container element
                 // nodeId - unique id for this top navbar menu item
                 // menuTitle - navbar menu item text
                 // menuLink - navbar menu link, to launch if the user clicks on this menu item
-                var createMenuWrapper = function (nodeParent, nodeId, menuTitle) {
+                var createMenuWrapper = function (nodeParent, nodeId, menuTitle, position, beforeAfter) {
                     if (nodeParent && !dojo.query("#" + nodeId)[0]) {
                         var host = '';
                         var template = '<a onmouseover="dojo.require(\'lconn.core.header\');lconn.core.header.menuMouseover(this);" onclick="dojo.require(\'lconn.core.header\');lconn.core.header.menuClick(this); _lconn_menuid="lconnheadermenu-${menuTitle}" aria-label="${menuTitle}">${menuTitle}<img role="presentation" alt="" src="${host}/connections/resources/web/com.ibm.lconn.core.styles.oneui3/images/blank.gif?etag=20200217.221231" class="lotusArrow lotusDropDownSprite"><span class="lotusAltText">▼</span></a>';
@@ -47,13 +73,14 @@
                             menuTitle,
                             host
                         }, string.escape);
-                        return domConstruct.create(
+                        domConstruct.create(
                             "li", {
                                 id: nodeId,
                                 innerHTML: html
                             },
                             nodeParent
                         );
+                        return domConstruct.place(nodeId, position, beforeAfter);
                     } else {
                         throw new Error("Error couldn't find the node parent to insert menu wrapper");
                     }
@@ -145,7 +172,7 @@
                     } else {
                         throw new Error("Cannot find top nav menu to modify: " + queryTopNavMenu);
                     }
-                }
+                };
                 // 3) Delete Menu
                 // topNavMenuText
                 // subMenuText - optional, if provided will delete just the submenu, other if null, will delete the top nav menu item
@@ -175,59 +202,104 @@
                     } else {
                         throw new Error("Cannot find top nav menu to delete: " + queryTopNavMenu);
                     }
-                }
+                };
                 // here we use waitFor page to load
                 // before we proceed to customize the navbar for the menu Apps
                 waitFor(function () {
-                        console.log('loaded');
-                        //
-                        // 1) get the top navbar <ul>
-                        var navbar = dojo.query("ul.lotusInlinelist.lotusLinks")[0];
-                        //
-                        // 2) create the top link menu wrapper
-                        var topNavMenuId = "btn_actn__add_menu_wrapper_1";
-                        var topNavMenuText = "<Your Menu Label Here>";
-                        var menuWrapper = createMenuWrapper(navbar, topNavMenuId, topNavMenuText);
-                        //
-                        // 3) create the submenus and links
-                        var subMenuId = "btn_act__add_submenu1";
-                        var subMenuText = "<Menu Link Label 1>";
-                        var subMenuLink = "https://<menu item link 1>";
-                        var subMenuId2 = "btn_act__add_submenu2";
-                        var subMenuText2 = "<Menu Link Label 2>";
-                        var subMenuLink2 = "https://<menu item link 2>";
-                        // get the anchor element for the navbar menu
-                        var anchor = dojo.query("a", menuWrapper)[0];
-                        // add event when user enters the navbar menu
-                        on(anchor, mouse.enter, function () {
-                            // wait for the navbar dropdown menu to show
-                            waitFor(function () {
-                                // create one submenu
-                                createSubmenu(topNavMenuText, subMenuId, subMenuText, subMenuLink);
-                                // create another submenu
-                                createSubmenu(topNavMenuText, subMenuId2, subMenuText2, subMenuLink2);
-                            }, `div[aria-label=\"${topNavMenuText}\"]`);
-                        });
-                        //
-                        // 4) Modify the menu wrapper text, top nav menu
-                        var modifyTopNavMenu = "Communities";
-                        var modifyTopNavMenuText = "My Communities";
-                        modifyMenu(modifyTopNavMenu, null, modifyTopNavMenuText);
-                        // 5) Modify the submenu text and link
-                        var modifySubMenu = "Discover";
-                        var modifySubMenuText = "Discover 2";
-                        var modifySubMenuLink = "http://<menu item link>";
-                        modifyMenu(modifyTopNavMenu, modifySubMenu, modifySubMenuText, modifySubMenuLink);
-                        // uncomment lines below to delete the menus
-                        // 5) delete the menu wrapper (top navbar menu item)
-                        // var deleteTopNavMenuByText = "Testing";
-                        // deleteMenu(deleteTopNavMenuByText);
-                        // delete the submenu item
-                        // deleteTopNavMenuByText = "Communities";
-                        // var deleteSubMenuByText = "Invited";
-                        // deleteMenu(deleteTopNavMenuByText, deleteSubMenuByText);
-                    },
-                    "div.lotusBanner");
+                    console.log('loaded');
+                    //
+                    // 1) get the top navbar <ul>
+                    var navbar = dojo.query("ul.lotusInlinelist.lotusLinks")[0];
+                    //
+                    // 2) create the top link menu links
+                    // Portal
+                    var topNavMenuId = "btn_actn__add_menu_link_1";
+                    var topNavMenuText = "<LinkTitle1>";
+                    var position = "lotusBannerHomepage";
+                    var beforeAfter = "before";
+                    var menuLink = "<linkUrl1>";
+                    var target = "_self";
+                    var menuLink1 = createMenuLink(navbar, topNavMenuId, topNavMenuText, menuLink, position, beforeAfter, target);
+                    // Unternehmensrichtlinien
+                    topNavMenuId = "btn_actn__add_menu_link_2";
+                    topNavMenuText = "<linkTitle2>";
+                    position = "btn_actn__add_menu_link_1";
+                    beforeAfter = "after";
+                    target = "_self";
+                    menuLink = "<linkUrl2";
+                    var menuLink2 = createMenuLink(navbar, topNavMenuId, topNavMenuText, menuLink, position, beforeAfter, target);
+                    // 3) create top menu wrapper
+                    topNavMenuId = "btn_actn__add_menu_wrapper_1";
+                    topNavMenuText = "more";
+                    position = "lotusBannerApps";
+                    beforeAfter = "after";
+                    var menuWrapper = createMenuWrapper(navbar, topNavMenuId, topNavMenuText, position, beforeAfter);
+                    //
+                    // 4) create the submenus and links
+                    // get the anchor element for the navbar menu
+                    var anchor = dojo.query("a", menuWrapper)[0];
+                    // add event when user enters the navbar menu
+                    on(anchor, mouse.enter, function () {
+                        // wait for the navbar dropdown menu to show
+                        waitFor(function () {
+                            //Submenu1
+                            var subMenuId = "btn_act__add_submenu5";
+                            var subMenuText = "<subMenuTitle1>";
+                            var subMenuLink = "<subMenuUrl1>";
+                            createSubmenu(topNavMenuText, subMenuId, subMenuText, subMenuLink);
+                            //Submenu2
+                            subMenuId = "btn_act__add_submenu6";
+                            subMenuText = "<subMenuTitle2>";
+                            subMenuLink = "<subMenuTitle2>";
+                            createSubmenu(topNavMenuText, subMenuId, subMenuText, subMenuLink);                           
+                        }, `div[aria-label=\"${topNavMenuText}\"]`);
+                    });
+                    //5) add to an existing menu wrapper
+                    //topNavMenuText = "<navMenuTitle>";
+                    //subMenuId = "btn_act__add_submenu4";
+                    //subMenuText = "<submenuTitle>";
+                    //subMenuLink = "<subMenuUrl>";
+                    // 
+                    //createSubmenu(topNavMenuText, subMenuId, subMenuText, subMenuLink);
+                    //
+                    // 6) Modify the menu wrapper text, top nav menu
+                    var modifyTopNavMenu = "<oldname>";
+                    var modifyTopNavMenuText = "<newname>";
+                    modifyMenu(modifyTopNavMenu, null, modifyTopNavMenuText);
+                    // 7) Modify the submenu text and link
+                    //var modifySubMenuTopNav = "<topNavMenuName>";
+                    //var modifySubMenu = "oldSubMenuName";
+                    //var modifySubMenuText = "newSubMenuName";
+                    //var modifySubMenuLink = "http://<new menu item link>";
+                    //modifyMenu(modifySubMenuTopNav, modifySubMenu, modifySubMenuText, null);
+                    //modifyMenu(modifyTopNavMenu, modifySubMenu, modifySubMenuText, modifySubMenuLink);
+                    // 8) delete the menu wrapper (top navbar menu item)
+                    // var deleteTopNavMenuByText = "Testing";
+                    // deleteMenu(deleteTopNavMenuByText);
+                    // delete the submenu item
+                    // deleteTopNavMenuByText = "Communities";
+                    // var deleteSubMenuByText = "Invited";
+                    // deleteMenu(deleteTopNavMenuByText, deleteSubMenuByText);
+                    // 9) exchange logo
+                    var logo = dojo.query("div#lotusLogo")[0];
+                    var logoHTML = "<img alt='Logo' class='nav-icon' height='20px' style='display:block;margin:0;margin-top:10px;' src=<logoUrl>>";
+                    logo.innerHTML=logoHTML;
+                    // 10) hide lotusBranding
+                    var brand = dojo.query("span.lotusBranding")[0];
+                    var result = dojo.attr(brand,"style","display:none");
+                    // 11) put avatar most right
+                    var avatar = dojo.query("li#lotusPerson")[0];
+                    var helplink = dojo.query("li#headerHelpLi")[0];
+                    domConstruct.place(avatar, helplink, "after");
+                    // sharebox left from notificationbell
+                    var shareButton = dojo.query("li#headerSharebox")[0];
+                    var notificationBell = dojo.query("li#lotusBannerNotifications")[0];
+                    domConstruct.place(shareButton, notificationBell, "before");
+                    // 12) banner height = 40px
+                    var banner = dojo.query("div#lotusBanner")[0];
+                    result = dojo.attr(banner,"style","height:40px");
+                },
+                "div.lotusBanner");
             } catch (e) {
                 console.log("customNavbar error " + e);
                 alert("Exceptionc customizing menu item: " + e);
